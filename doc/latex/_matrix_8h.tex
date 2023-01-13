@@ -1,0 +1,238 @@
+\hypertarget{_matrix_8h}{}\doxysection{src/\+Matrix.h File Reference}
+\label{_matrix_8h}\index{src/Matrix.h@{src/Matrix.h}}
+
+
+Header for struct \mbox{\hyperlink{struct_matrix}{Matrix}}.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_matrix}{Matrix}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_matrix}{Matrix}} contain its number of rows and colums and a pointeur to its data (floats) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_matrix_8h_a9570374e3dbc873595100dae1e584459}\label{_matrix_8h_a9570374e3dbc873595100dae1e584459}} 
+typedef struct \mbox{\hyperlink{struct_matrix}{Matrix}} {\bfseries Matrix}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$ \mbox{\hyperlink{_matrix_8h_a9bf454387fe3afca5f2deee32225522e}{Matrix\+\_\+generate}} (unsigned short n\+\_\+cols, unsigned short n\+\_\+rows)
+\begin{DoxyCompactList}\small\item\em generate a matrix containings zeros. \end{DoxyCompactList}\item 
+float $\ast$ \mbox{\hyperlink{_matrix_8h_a071fa27d495c01875ff717f84d56b967}{Matrix\+\_\+at}} (\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$mat, unsigned short i, unsigned short j)
+\begin{DoxyCompactList}\small\item\em return pointer to value at position mat\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{_matrix_8h_a279197f086d3ad9252e5c74e0da2bb3e}{Matrix\+\_\+set\+At}} (\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$mat, unsigned short i, unsigned short j, float x)
+\begin{DoxyCompactList}\small\item\em set value at position mat\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} to value x \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_matrix_8h_a42fab9ab19882c9612d8ffeae6d330b0}{Matrix\+\_\+scalar\+Multiply}} (\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$mat, float x)
+\begin{DoxyCompactList}\small\item\em multiply every values in mat by x \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$ \mbox{\hyperlink{_matrix_8h_a86f766bf67b1764ea5950276b80e89f3}{Matrix\+\_\+multiply}} (\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$m1, \mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$m2)
+\begin{DoxyCompactList}\small\item\em multiply 2 \mbox{\hyperlink{struct_matrix}{Matrix}} m1 $\ast$ m2 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$ \mbox{\hyperlink{_matrix_8h_af63bcd01175c120eae4e7f4238f3f5ca}{Matrix\+\_\+addition}} (\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$m1, \mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$m2)
+\begin{DoxyCompactList}\small\item\em add two matrix together \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$ \mbox{\hyperlink{_matrix_8h_a9e33c79d2fbe2c053c1700da5d849b70}{Matrix\+\_\+substract}} (\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$m1, \mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$m2)
+\begin{DoxyCompactList}\small\item\em substract m2 from m1 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_matrix_8h_a50b867d734821cb88785d8b809ddc04f}{Matrix\+\_\+equals}} (\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$m1, \mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$m2)
+\begin{DoxyCompactList}\small\item\em return if two given \mbox{\hyperlink{struct_matrix}{Matrix}} are equals \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$ \mbox{\hyperlink{_matrix_8h_a9174086b3e85a9d200e6afd47ec31b9a}{Matrix\+\_\+copy}} (\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$mat)
+\begin{DoxyCompactList}\small\item\em copy \mbox{\hyperlink{struct_matrix}{Matrix}} and return pointer to copy \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header for struct \mbox{\hyperlink{struct_matrix}{Matrix}}. 
+
+\begin{DoxyAuthor}{Author}
+Antony Madaleno 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12-\/01-\/2023
+\end{DoxyDate}
+Header pour les struct de Matrices 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_matrix_8h_af63bcd01175c120eae4e7f4238f3f5ca}\label{_matrix_8h_af63bcd01175c120eae4e7f4238f3f5ca}} 
+\index{Matrix.h@{Matrix.h}!Matrix\_addition@{Matrix\_addition}}
+\index{Matrix\_addition@{Matrix\_addition}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{Matrix\_addition()}{Matrix\_addition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$ Matrix\+\_\+addition (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$}]{m1,  }\item[{\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$}]{m2 }\end{DoxyParamCaption})}
+
+
+
+add two matrix together 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m1} & pointer to \mbox{\hyperlink{struct_matrix}{Matrix}} \\
+\hline
+{\em m2} & pointer to \mbox{\hyperlink{struct_matrix}{Matrix}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to result matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_matrix_8h_a071fa27d495c01875ff717f84d56b967}\label{_matrix_8h_a071fa27d495c01875ff717f84d56b967}} 
+\index{Matrix.h@{Matrix.h}!Matrix\_at@{Matrix\_at}}
+\index{Matrix\_at@{Matrix\_at}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{Matrix\_at()}{Matrix\_at()}}
+{\footnotesize\ttfamily float $\ast$ Matrix\+\_\+at (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$}]{mat,  }\item[{unsigned short}]{i,  }\item[{unsigned short}]{j }\end{DoxyParamCaption})}
+
+
+
+return pointer to value at position mat\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & a pointer to a matrix \\
+\hline
+{\em i} & column position \\
+\hline
+{\em j} & row position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to value at given position in matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_matrix_8h_a9174086b3e85a9d200e6afd47ec31b9a}\label{_matrix_8h_a9174086b3e85a9d200e6afd47ec31b9a}} 
+\index{Matrix.h@{Matrix.h}!Matrix\_copy@{Matrix\_copy}}
+\index{Matrix\_copy@{Matrix\_copy}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{Matrix\_copy()}{Matrix\_copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$ Matrix\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$}]{mat }\end{DoxyParamCaption})}
+
+
+
+copy \mbox{\hyperlink{struct_matrix}{Matrix}} and return pointer to copy 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & pointer to matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to \mbox{\hyperlink{struct_matrix}{Matrix}} copy of mat 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_matrix_8h_a50b867d734821cb88785d8b809ddc04f}\label{_matrix_8h_a50b867d734821cb88785d8b809ddc04f}} 
+\index{Matrix.h@{Matrix.h}!Matrix\_equals@{Matrix\_equals}}
+\index{Matrix\_equals@{Matrix\_equals}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{Matrix\_equals()}{Matrix\_equals()}}
+{\footnotesize\ttfamily bool Matrix\+\_\+equals (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$}]{m1,  }\item[{\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$}]{m2 }\end{DoxyParamCaption})}
+
+
+
+return if two given \mbox{\hyperlink{struct_matrix}{Matrix}} are equals 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m1} & \\
+\hline
+{\em m2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if equals else false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_matrix_8h_a9bf454387fe3afca5f2deee32225522e}\label{_matrix_8h_a9bf454387fe3afca5f2deee32225522e}} 
+\index{Matrix.h@{Matrix.h}!Matrix\_generate@{Matrix\_generate}}
+\index{Matrix\_generate@{Matrix\_generate}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{Matrix\_generate()}{Matrix\_generate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$ Matrix\+\_\+generate (\begin{DoxyParamCaption}\item[{unsigned short}]{n\+\_\+cols,  }\item[{unsigned short}]{n\+\_\+rows }\end{DoxyParamCaption})}
+
+
+
+generate a matrix containings zeros. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+cols} & unsigned short, number of columns in the matrix \\
+\hline
+{\em n\+\_\+rows} & unsigned short, number of rows in the matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to a matrix of size (n\+\_\+cols, n\+\_\+rows) containing zeros 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_matrix_8h_a86f766bf67b1764ea5950276b80e89f3}\label{_matrix_8h_a86f766bf67b1764ea5950276b80e89f3}} 
+\index{Matrix.h@{Matrix.h}!Matrix\_multiply@{Matrix\_multiply}}
+\index{Matrix\_multiply@{Matrix\_multiply}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{Matrix\_multiply()}{Matrix\_multiply()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$ Matrix\+\_\+multiply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$}]{m1,  }\item[{\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$}]{m2 }\end{DoxyParamCaption})}
+
+
+
+multiply 2 \mbox{\hyperlink{struct_matrix}{Matrix}} m1 $\ast$ m2 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m1} & pointer to \mbox{\hyperlink{struct_matrix}{Matrix}} \\
+\hline
+{\em m2} & pointer to \mbox{\hyperlink{struct_matrix}{Matrix}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to resultant \mbox{\hyperlink{struct_matrix}{Matrix}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_matrix_8h_a42fab9ab19882c9612d8ffeae6d330b0}\label{_matrix_8h_a42fab9ab19882c9612d8ffeae6d330b0}} 
+\index{Matrix.h@{Matrix.h}!Matrix\_scalarMultiply@{Matrix\_scalarMultiply}}
+\index{Matrix\_scalarMultiply@{Matrix\_scalarMultiply}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{Matrix\_scalarMultiply()}{Matrix\_scalarMultiply()}}
+{\footnotesize\ttfamily void Matrix\+\_\+scalar\+Multiply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$}]{mat,  }\item[{float}]{x }\end{DoxyParamCaption})}
+
+
+
+multiply every values in mat by x 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & pointer to \mbox{\hyperlink{struct_matrix}{Matrix}} \\
+\hline
+{\em x} & float value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_matrix_8h_a279197f086d3ad9252e5c74e0da2bb3e}\label{_matrix_8h_a279197f086d3ad9252e5c74e0da2bb3e}} 
+\index{Matrix.h@{Matrix.h}!Matrix\_setAt@{Matrix\_setAt}}
+\index{Matrix\_setAt@{Matrix\_setAt}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{Matrix\_setAt()}{Matrix\_setAt()}}
+{\footnotesize\ttfamily unsigned char Matrix\+\_\+set\+At (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$}]{mat,  }\item[{unsigned short}]{i,  }\item[{unsigned short}]{j,  }\item[{float}]{x }\end{DoxyParamCaption})}
+
+
+
+set value at position mat\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} to value x 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & pointer to \mbox{\hyperlink{struct_matrix}{Matrix}} \\
+\hline
+{\em i} & column position \\
+\hline
+{\em j} & row position \\
+\hline
+{\em x} & float value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if problem occured, 1 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_matrix_8h_a9e33c79d2fbe2c053c1700da5d849b70}\label{_matrix_8h_a9e33c79d2fbe2c053c1700da5d849b70}} 
+\index{Matrix.h@{Matrix.h}!Matrix\_substract@{Matrix\_substract}}
+\index{Matrix\_substract@{Matrix\_substract}!Matrix.h@{Matrix.h}}
+\doxysubsubsection{\texorpdfstring{Matrix\_substract()}{Matrix\_substract()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$ Matrix\+\_\+substract (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$}]{m1,  }\item[{\mbox{\hyperlink{struct_matrix}{Matrix}} $\ast$}]{m2 }\end{DoxyParamCaption})}
+
+
+
+substract m2 from m1 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m1} & pointer to \mbox{\hyperlink{struct_matrix}{Matrix}} \\
+\hline
+{\em m2} & pointer to \mbox{\hyperlink{struct_matrix}{Matrix}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to result matrix 
+\end{DoxyReturn}

@@ -1,0 +1,554 @@
+\hypertarget{_vec_8h}{}\doxysection{src/\+Vec.h File Reference}
+\label{_vec_8h}\index{src/Vec.h@{src/Vec.h}}
+
+
+Header for struct \mbox{\hyperlink{struct_vec2}{Vec2}}, \mbox{\hyperlink{struct_vec3}{Vec3}} and \mbox{\hyperlink{struct_vec4}{Vec4}}.  
+
+
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_vec2}{Vec2}}
+\begin{DoxyCompactList}\small\item\em Vector containing 2 floats x,y. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_vec3}{Vec3}}
+\begin{DoxyCompactList}\small\item\em Vector containing 3 floats x,y,z. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_vec4}{Vec4}}
+\begin{DoxyCompactList}\small\item\em Vector containing 4 floats x,y,z,w. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_vec_8h_af5ef9466b1253e714b5ded8b25d06246}\label{_vec_8h_af5ef9466b1253e714b5ded8b25d06246}} 
+typedef struct \mbox{\hyperlink{struct_vec2}{Vec2}} {\bfseries Vec2}
+\item 
+\mbox{\Hypertarget{_vec_8h_a20b81c7ccf425704f7fbf034c6e0afe1}\label{_vec_8h_a20b81c7ccf425704f7fbf034c6e0afe1}} 
+typedef struct \mbox{\hyperlink{struct_vec3}{Vec3}} {\bfseries Vec3}
+\item 
+\mbox{\Hypertarget{_vec_8h_abd438584811431d451e07e5600aab8e7}\label{_vec_8h_abd438584811431d451e07e5600aab8e7}} 
+typedef struct \mbox{\hyperlink{struct_vec4}{Vec4}} {\bfseries Vec4}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{_vec_8h_afa6f5d5e20ffab0b12e746a03be7ea63}{Vec2\+\_\+set}} (\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$v, float x, float y)
+\begin{DoxyCompactList}\small\item\em Function to set value of given 2D vector to given x,y. \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{_vec_8h_ad2f524220a16f90cc467254e8d3cfa08}{Vec3\+\_\+set}} (\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$v, float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em Function to set value of given 3D vector to given x,y,z. \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{_vec_8h_af9466594f915628f35be8395ec912b6e}{Vec4\+\_\+set}} (\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$v, float x, float y, float z, float w)
+\begin{DoxyCompactList}\small\item\em Function to set value of given 4D vector to given x,y,z. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_vec_8h_a8e84dc0c19f4b056fa448ead1b002099}{Vec2\+\_\+length}} (\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Function to calculate length of said vector. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_vec_8h_a56f63400fb8569cf212588061574e543}{Vec3\+\_\+length}} (\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Function to calculate length of said vector. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_vec_8h_aac7c7633e04e1db1ff60a2a6a6698fdc}{Vec4\+\_\+length}} (\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Function to calculate length of said vector. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_vec_8h_a18edff0f59a77369a335a43da1c631ae}{Vec2\+\_\+length2}} (\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Function to calculate square length of said vector. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_vec_8h_a56bf838ceb7351cfb37eb0b1abbf2d79}{Vec3\+\_\+length2}} (\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Function to calculate square length of said vector. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_vec_8h_a668e37bf3b9fdbde1b8488aa88d1ebd0}{Vec4\+\_\+length2}} (\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Function to calculate square length of said vector. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_vec_8h_a7473aebdb9452820a661fa596678f5dd}{Vec2\+\_\+dist}} (\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$v, \mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$u)
+\begin{DoxyCompactList}\small\item\em Function to calculate distance in between 2 vertices. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_vec_8h_a019d26766a5b4b1696a072e074b0f225}{Vec3\+\_\+dist}} (\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$v, \mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$u)
+\begin{DoxyCompactList}\small\item\em Function to calculate distance in between 2 vertices. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_vec_8h_a8278041f59b9a0d986d9ba4d38c5da57}{Vec4\+\_\+dist}} (\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$v, \mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$u)
+\begin{DoxyCompactList}\small\item\em Function to calculate distance in between 2 vertices. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_vec_8h_a9c39fad1b0dabc8d784c74e6f1cf70b0}{Vec2\+\_\+dist2}} (\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$v, \mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$u)
+\begin{DoxyCompactList}\small\item\em Function to calculate distance in between 2 vertices. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_vec_8h_afb198785e2b38d222701a29030dae25e}{Vec3\+\_\+dist2}} (\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$v, \mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$u)
+\begin{DoxyCompactList}\small\item\em Function to calculate distance in between 2 vertices. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_vec_8h_ad6e4f166760b6c7da74c425870c7d47f}{Vec4\+\_\+dist2}} (\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$v, \mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$u)
+\begin{DoxyCompactList}\small\item\em Function to calculate distance in between 2 vertices. \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{_vec_8h_ad2226c59842baffacf4529bfd14ba1ba}{Vec2\+\_\+to\+\_\+\+Vec3}} (\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$dest, \mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$src)
+\begin{DoxyCompactList}\small\item\em transform given \mbox{\hyperlink{struct_vec2}{Vec2}} to \mbox{\hyperlink{struct_vec3}{Vec3}} by setting z to 0 into a \mbox{\hyperlink{struct_vec4}{Vec4}} pointer \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{_vec_8h_a506a2df8b33e0d4691b78418b722c7ea}{Vec2\+\_\+to\+\_\+\+Vec4}} (\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$dest, \mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$src)
+\begin{DoxyCompactList}\small\item\em transform given \mbox{\hyperlink{struct_vec2}{Vec2}} to \mbox{\hyperlink{struct_vec4}{Vec4}} by setting z,w to 0 into a \mbox{\hyperlink{struct_vec4}{Vec4}} pointer \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{_vec_8h_afa660738a1840bb9e27819ba384bb150}{Vec3\+\_\+to\+\_\+\+Vec4}} (\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$dest, \mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$src)
+\begin{DoxyCompactList}\small\item\em transform given \mbox{\hyperlink{struct_vec3}{Vec3}} to \mbox{\hyperlink{struct_vec4}{Vec4}} by setting w to 0 into a \mbox{\hyperlink{struct_vec4}{Vec4}} pointer \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_vec_8h_aa16e9fd99d9b937fb843ebc414ebc261}{Vec2\+\_\+dot}} (\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$v, \mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$u)
+\begin{DoxyCompactList}\small\item\em return dot value of two vectors \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_vec_8h_ae4f09cd0770170cc42c9921a0612ff4a}\label{_vec_8h_ae4f09cd0770170cc42c9921a0612ff4a}} 
+float {\bfseries Vec3\+\_\+dot} (\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$v, \mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$u)
+\item 
+\mbox{\Hypertarget{_vec_8h_aaa2b49e6ef069b11e2c487b50feaccd0}\label{_vec_8h_aaa2b49e6ef069b11e2c487b50feaccd0}} 
+float {\bfseries Vec4\+\_\+dot} (\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$v, \mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$u)
+\item 
+unsigned char \mbox{\hyperlink{_vec_8h_ac6df7cd702fa1e143b875f28db8456da}{Vec2\+\_\+normalize}} (\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$v)
+\begin{DoxyCompactList}\small\item\em normalize given vector \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{_vec_8h_a23c444432178255b3db7ef29898a80f8}{Vec3\+\_\+normalize}} (\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$v)
+\begin{DoxyCompactList}\small\item\em normalize given vector \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{_vec_8h_a5be2d6bb2ef0f4ef277b74936504753a}{Vec4\+\_\+normalize}} (\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$v)
+\begin{DoxyCompactList}\small\item\em normalize given vector \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$ \mbox{\hyperlink{_vec_8h_a7203fabc9070c2db025b041440666aed}{Vec3\+\_\+cross}} (\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$v, \mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$u)
+\begin{DoxyCompactList}\small\item\em function that calculate cross product of vectors v and u \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header for struct \mbox{\hyperlink{struct_vec2}{Vec2}}, \mbox{\hyperlink{struct_vec3}{Vec3}} and \mbox{\hyperlink{struct_vec4}{Vec4}}. 
+
+\begin{DoxyAuthor}{Author}
+Antony Madaleno 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12-\/01-\/2023
+\end{DoxyDate}
+Header pour les struct \mbox{\hyperlink{struct_vec2}{Vec2}}, \mbox{\hyperlink{struct_vec3}{Vec3}}, \mbox{\hyperlink{struct_vec4}{Vec4}} 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_vec_8h_a7473aebdb9452820a661fa596678f5dd}\label{_vec_8h_a7473aebdb9452820a661fa596678f5dd}} 
+\index{Vec.h@{Vec.h}!Vec2\_dist@{Vec2\_dist}}
+\index{Vec2\_dist@{Vec2\_dist}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec2\_dist()}{Vec2\_dist()}}
+{\footnotesize\ttfamily float Vec2\+\_\+dist (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$}]{v,  }\item[{\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$}]{u }\end{DoxyParamCaption})}
+
+
+
+Function to calculate distance in between 2 vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to vector \\
+\hline
+{\em u} & Pointer to vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+distance in between given vertices as float, if v or u is nullptr return -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_a9c39fad1b0dabc8d784c74e6f1cf70b0}\label{_vec_8h_a9c39fad1b0dabc8d784c74e6f1cf70b0}} 
+\index{Vec.h@{Vec.h}!Vec2\_dist2@{Vec2\_dist2}}
+\index{Vec2\_dist2@{Vec2\_dist2}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec2\_dist2()}{Vec2\_dist2()}}
+{\footnotesize\ttfamily float Vec2\+\_\+dist2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$}]{v,  }\item[{\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$}]{u }\end{DoxyParamCaption})}
+
+
+
+Function to calculate distance in between 2 vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to vector \\
+\hline
+{\em u} & Pointer to vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+square distance in between given vertices as float, if v or u is nullptr return -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_aa16e9fd99d9b937fb843ebc414ebc261}\label{_vec_8h_aa16e9fd99d9b937fb843ebc414ebc261}} 
+\index{Vec.h@{Vec.h}!Vec2\_dot@{Vec2\_dot}}
+\index{Vec2\_dot@{Vec2\_dot}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec2\_dot()}{Vec2\_dot()}}
+{\footnotesize\ttfamily float Vec2\+\_\+dot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$}]{v,  }\item[{\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$}]{u }\end{DoxyParamCaption})}
+
+
+
+return dot value of two vectors 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & pointer \mbox{\hyperlink{struct_vec2}{Vec2}} \\
+\hline
+{\em u} & pointer \mbox{\hyperlink{struct_vec2}{Vec2}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dot value of two vectors as a float, If one of the 2 vectors is nullptr return 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_a8e84dc0c19f4b056fa448ead1b002099}\label{_vec_8h_a8e84dc0c19f4b056fa448ead1b002099}} 
+\index{Vec.h@{Vec.h}!Vec2\_length@{Vec2\_length}}
+\index{Vec2\_length@{Vec2\_length}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec2\_length()}{Vec2\_length()}}
+{\footnotesize\ttfamily float Vec2\+\_\+length (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+Function to calculate length of said vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+length of the vector as float if v is nullptr return -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_a18edff0f59a77369a335a43da1c631ae}\label{_vec_8h_a18edff0f59a77369a335a43da1c631ae}} 
+\index{Vec.h@{Vec.h}!Vec2\_length2@{Vec2\_length2}}
+\index{Vec2\_length2@{Vec2\_length2}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec2\_length2()}{Vec2\_length2()}}
+{\footnotesize\ttfamily float Vec2\+\_\+length2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+Function to calculate square length of said vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+length of the vector as float if v is nullptr return -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_ac6df7cd702fa1e143b875f28db8456da}\label{_vec_8h_ac6df7cd702fa1e143b875f28db8456da}} 
+\index{Vec.h@{Vec.h}!Vec2\_normalize@{Vec2\_normalize}}
+\index{Vec2\_normalize@{Vec2\_normalize}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec2\_normalize()}{Vec2\_normalize()}}
+{\footnotesize\ttfamily unsigned char Vec2\+\_\+normalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+normalize given vector 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & pointer to \mbox{\hyperlink{struct_vec2}{Vec2}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if v is nullptr else if length of v is not 0 return 1 else return 2 as unsigned char 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_afa6f5d5e20ffab0b12e746a03be7ea63}\label{_vec_8h_afa6f5d5e20ffab0b12e746a03be7ea63}} 
+\index{Vec.h@{Vec.h}!Vec2\_set@{Vec2\_set}}
+\index{Vec2\_set@{Vec2\_set}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec2\_set()}{Vec2\_set()}}
+{\footnotesize\ttfamily unsigned char Vec2\+\_\+set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$}]{v,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Function to set value of given 2D vector to given x,y. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to vector \\
+\hline
+{\em x} & Float value used to set x value inside vector v \\
+\hline
+{\em y} & Float value used to set y value inside vector v \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if v is nullptr, 1 if values are set correctly 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_ad2226c59842baffacf4529bfd14ba1ba}\label{_vec_8h_ad2226c59842baffacf4529bfd14ba1ba}} 
+\index{Vec.h@{Vec.h}!Vec2\_to\_Vec3@{Vec2\_to\_Vec3}}
+\index{Vec2\_to\_Vec3@{Vec2\_to\_Vec3}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec2\_to\_Vec3()}{Vec2\_to\_Vec3()}}
+{\footnotesize\ttfamily unsigned char Vec2\+\_\+to\+\_\+\+Vec3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$}]{dest,  }\item[{\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$}]{src }\end{DoxyParamCaption})}
+
+
+
+transform given \mbox{\hyperlink{struct_vec2}{Vec2}} to \mbox{\hyperlink{struct_vec3}{Vec3}} by setting z to 0 into a \mbox{\hyperlink{struct_vec4}{Vec4}} pointer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dest} & \mbox{\hyperlink{struct_vec3}{Vec3}} to receipt data \\
+\hline
+{\em src} & \mbox{\hyperlink{struct_vec2}{Vec2}} source to transform \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if src is nullptr else 1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_a506a2df8b33e0d4691b78418b722c7ea}\label{_vec_8h_a506a2df8b33e0d4691b78418b722c7ea}} 
+\index{Vec.h@{Vec.h}!Vec2\_to\_Vec4@{Vec2\_to\_Vec4}}
+\index{Vec2\_to\_Vec4@{Vec2\_to\_Vec4}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec2\_to\_Vec4()}{Vec2\_to\_Vec4()}}
+{\footnotesize\ttfamily unsigned char Vec2\+\_\+to\+\_\+\+Vec4 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$}]{dest,  }\item[{\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$}]{src }\end{DoxyParamCaption})}
+
+
+
+transform given \mbox{\hyperlink{struct_vec2}{Vec2}} to \mbox{\hyperlink{struct_vec4}{Vec4}} by setting z,w to 0 into a \mbox{\hyperlink{struct_vec4}{Vec4}} pointer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dest} & \mbox{\hyperlink{struct_vec4}{Vec4}} to receipt data \\
+\hline
+{\em src} & \mbox{\hyperlink{struct_vec2}{Vec2}} source to transform \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if src is nullptr else 1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_a7203fabc9070c2db025b041440666aed}\label{_vec_8h_a7203fabc9070c2db025b041440666aed}} 
+\index{Vec.h@{Vec.h}!Vec3\_cross@{Vec3\_cross}}
+\index{Vec3\_cross@{Vec3\_cross}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec3\_cross()}{Vec3\_cross()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$ Vec3\+\_\+cross (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$}]{v,  }\item[{\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$}]{u }\end{DoxyParamCaption})}
+
+
+
+function that calculate cross product of vectors v and u 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & pointer to \mbox{\hyperlink{struct_vec3}{Vec3}} \\
+\hline
+{\em u} & pointer to \mbox{\hyperlink{struct_vec3}{Vec3}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to \mbox{\hyperlink{struct_vec3}{Vec3}} that is the cross product of v,u 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_a019d26766a5b4b1696a072e074b0f225}\label{_vec_8h_a019d26766a5b4b1696a072e074b0f225}} 
+\index{Vec.h@{Vec.h}!Vec3\_dist@{Vec3\_dist}}
+\index{Vec3\_dist@{Vec3\_dist}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec3\_dist()}{Vec3\_dist()}}
+{\footnotesize\ttfamily float Vec3\+\_\+dist (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$}]{v,  }\item[{\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$}]{u }\end{DoxyParamCaption})}
+
+
+
+Function to calculate distance in between 2 vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to vector \\
+\hline
+{\em u} & Pointer to vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+distance in between given vertices as float, if v or u is nullptr return -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_afb198785e2b38d222701a29030dae25e}\label{_vec_8h_afb198785e2b38d222701a29030dae25e}} 
+\index{Vec.h@{Vec.h}!Vec3\_dist2@{Vec3\_dist2}}
+\index{Vec3\_dist2@{Vec3\_dist2}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec3\_dist2()}{Vec3\_dist2()}}
+{\footnotesize\ttfamily float Vec3\+\_\+dist2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$}]{v,  }\item[{\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$}]{u }\end{DoxyParamCaption})}
+
+
+
+Function to calculate distance in between 2 vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to vector \\
+\hline
+{\em u} & Pointer to vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+square distance in between given vertices as float, if v or u is nullptr return -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_a56f63400fb8569cf212588061574e543}\label{_vec_8h_a56f63400fb8569cf212588061574e543}} 
+\index{Vec.h@{Vec.h}!Vec3\_length@{Vec3\_length}}
+\index{Vec3\_length@{Vec3\_length}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec3\_length()}{Vec3\_length()}}
+{\footnotesize\ttfamily float Vec3\+\_\+length (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+Function to calculate length of said vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+length of the vector as float if v is nullptr return -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_a56bf838ceb7351cfb37eb0b1abbf2d79}\label{_vec_8h_a56bf838ceb7351cfb37eb0b1abbf2d79}} 
+\index{Vec.h@{Vec.h}!Vec3\_length2@{Vec3\_length2}}
+\index{Vec3\_length2@{Vec3\_length2}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec3\_length2()}{Vec3\_length2()}}
+{\footnotesize\ttfamily float Vec3\+\_\+length2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+Function to calculate square length of said vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+length of the vector as float if v is nullptr return -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_a23c444432178255b3db7ef29898a80f8}\label{_vec_8h_a23c444432178255b3db7ef29898a80f8}} 
+\index{Vec.h@{Vec.h}!Vec3\_normalize@{Vec3\_normalize}}
+\index{Vec3\_normalize@{Vec3\_normalize}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec3\_normalize()}{Vec3\_normalize()}}
+{\footnotesize\ttfamily unsigned char Vec3\+\_\+normalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+normalize given vector 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & pointer to \mbox{\hyperlink{struct_vec3}{Vec3}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if v is nullptr else if length of v is not 0 return 1 else return 2 as unsigned char 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_ad2f524220a16f90cc467254e8d3cfa08}\label{_vec_8h_ad2f524220a16f90cc467254e8d3cfa08}} 
+\index{Vec.h@{Vec.h}!Vec3\_set@{Vec3\_set}}
+\index{Vec3\_set@{Vec3\_set}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec3\_set()}{Vec3\_set()}}
+{\footnotesize\ttfamily unsigned char Vec3\+\_\+set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$}]{v,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})}
+
+
+
+Function to set value of given 3D vector to given x,y,z. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to vector \\
+\hline
+{\em x} & Float value used to set x value inside vector v \\
+\hline
+{\em y} & Float value used to set y value inside vector v \\
+\hline
+{\em z} & Float value used to set z value inside vector v \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if v is nullptr, 1 if values are set correctly 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_afa660738a1840bb9e27819ba384bb150}\label{_vec_8h_afa660738a1840bb9e27819ba384bb150}} 
+\index{Vec.h@{Vec.h}!Vec3\_to\_Vec4@{Vec3\_to\_Vec4}}
+\index{Vec3\_to\_Vec4@{Vec3\_to\_Vec4}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec3\_to\_Vec4()}{Vec3\_to\_Vec4()}}
+{\footnotesize\ttfamily unsigned char Vec3\+\_\+to\+\_\+\+Vec4 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$}]{dest,  }\item[{\mbox{\hyperlink{struct_vec3}{Vec3}} $\ast$}]{src }\end{DoxyParamCaption})}
+
+
+
+transform given \mbox{\hyperlink{struct_vec3}{Vec3}} to \mbox{\hyperlink{struct_vec4}{Vec4}} by setting w to 0 into a \mbox{\hyperlink{struct_vec4}{Vec4}} pointer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dest} & \mbox{\hyperlink{struct_vec4}{Vec4}} to receipt data \\
+\hline
+{\em src} & \mbox{\hyperlink{struct_vec3}{Vec3}} source to transform \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if src is nullptr else 1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_a8278041f59b9a0d986d9ba4d38c5da57}\label{_vec_8h_a8278041f59b9a0d986d9ba4d38c5da57}} 
+\index{Vec.h@{Vec.h}!Vec4\_dist@{Vec4\_dist}}
+\index{Vec4\_dist@{Vec4\_dist}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec4\_dist()}{Vec4\_dist()}}
+{\footnotesize\ttfamily float Vec4\+\_\+dist (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$}]{v,  }\item[{\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$}]{u }\end{DoxyParamCaption})}
+
+
+
+Function to calculate distance in between 2 vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to vector \\
+\hline
+{\em u} & Pointer to vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+distance in between given vertices as float, if v or u is nullptr return -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_ad6e4f166760b6c7da74c425870c7d47f}\label{_vec_8h_ad6e4f166760b6c7da74c425870c7d47f}} 
+\index{Vec.h@{Vec.h}!Vec4\_dist2@{Vec4\_dist2}}
+\index{Vec4\_dist2@{Vec4\_dist2}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec4\_dist2()}{Vec4\_dist2()}}
+{\footnotesize\ttfamily float Vec4\+\_\+dist2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$}]{v,  }\item[{\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$}]{u }\end{DoxyParamCaption})}
+
+
+
+Function to calculate distance in between 2 vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to vector \\
+\hline
+{\em u} & Pointer to vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+square distance in between given vertices as float, if v or u is nullptr return -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_aac7c7633e04e1db1ff60a2a6a6698fdc}\label{_vec_8h_aac7c7633e04e1db1ff60a2a6a6698fdc}} 
+\index{Vec.h@{Vec.h}!Vec4\_length@{Vec4\_length}}
+\index{Vec4\_length@{Vec4\_length}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec4\_length()}{Vec4\_length()}}
+{\footnotesize\ttfamily float Vec4\+\_\+length (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+Function to calculate length of said vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+length of the vector as float if v is nullptr return -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_a668e37bf3b9fdbde1b8488aa88d1ebd0}\label{_vec_8h_a668e37bf3b9fdbde1b8488aa88d1ebd0}} 
+\index{Vec.h@{Vec.h}!Vec4\_length2@{Vec4\_length2}}
+\index{Vec4\_length2@{Vec4\_length2}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec4\_length2()}{Vec4\_length2()}}
+{\footnotesize\ttfamily float Vec4\+\_\+length2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+Function to calculate square length of said vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+length of the vector as float if v is nullptr return -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_a5be2d6bb2ef0f4ef277b74936504753a}\label{_vec_8h_a5be2d6bb2ef0f4ef277b74936504753a}} 
+\index{Vec.h@{Vec.h}!Vec4\_normalize@{Vec4\_normalize}}
+\index{Vec4\_normalize@{Vec4\_normalize}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec4\_normalize()}{Vec4\_normalize()}}
+{\footnotesize\ttfamily unsigned char Vec4\+\_\+normalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+normalize given vector 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & pointer to \mbox{\hyperlink{struct_vec4}{Vec4}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if v is nullptr else if length of v is not 0 return 1 else return 2 as unsigned char 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_vec_8h_af9466594f915628f35be8395ec912b6e}\label{_vec_8h_af9466594f915628f35be8395ec912b6e}} 
+\index{Vec.h@{Vec.h}!Vec4\_set@{Vec4\_set}}
+\index{Vec4\_set@{Vec4\_set}!Vec.h@{Vec.h}}
+\doxysubsubsection{\texorpdfstring{Vec4\_set()}{Vec4\_set()}}
+{\footnotesize\ttfamily unsigned char Vec4\+\_\+set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec4}{Vec4}} $\ast$}]{v,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z,  }\item[{float}]{w }\end{DoxyParamCaption})}
+
+
+
+Function to set value of given 4D vector to given x,y,z. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to vector \\
+\hline
+{\em x} & Float value used to set x value inside vector v \\
+\hline
+{\em y} & Float value used to set y value inside vector v \\
+\hline
+{\em z} & Float value used to set z value inside vector v \\
+\hline
+{\em w} & Float value used to set w value inside vector v \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if v is nullptr, 1 if values are set correctly 
+\end{DoxyReturn}

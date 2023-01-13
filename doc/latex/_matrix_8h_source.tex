@@ -1,0 +1,33 @@
+\hypertarget{_matrix_8h_source}{}\doxysection{Matrix.\+h}
+\label{_matrix_8h_source}\index{src/Matrix.h@{src/Matrix.h}}
+\mbox{\hyperlink{_matrix_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_matrix}{Matrix}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ n\_cols,\ n\_rows;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{float}\ *\ data;}
+\DoxyCodeLine{00023\ \}\ \mbox{\hyperlink{struct_matrix}{Matrix}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00030\ \mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ \mbox{\hyperlink{_matrix_8h_a9bf454387fe3afca5f2deee32225522e}{Matrix\_generate}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ n\_cols,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ n\_rows\ );}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{float}\ *\ \mbox{\hyperlink{_matrix_8h_a071fa27d495c01875ff717f84d56b967}{Matrix\_at}}(\mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ mat,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ i,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ j\ );}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{_matrix_8h_a279197f086d3ad9252e5c74e0da2bb3e}{Matrix\_setAt}}(\mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ mat,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ i,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ j,\ \textcolor{keywordtype}{float}\ x);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_matrix_8h_a42fab9ab19882c9612d8ffeae6d330b0}{Matrix\_scalarMultiply}}(\mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ mat,\ \textcolor{keywordtype}{float}\ x);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00060\ \mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ \mbox{\hyperlink{_matrix_8h_a86f766bf67b1764ea5950276b80e89f3}{Matrix\_multiply}}(\mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ m1,\ \mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ m2);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ \mbox{\hyperlink{_matrix_8h_af63bcd01175c120eae4e7f4238f3f5ca}{Matrix\_addition}}(\mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ m1,\ \mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ m2);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ \mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ \mbox{\hyperlink{_matrix_8h_a9e33c79d2fbe2c053c1700da5d849b70}{Matrix\_substract}}(\mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ m1,\ \mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ m2);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_matrix_8h_a50b867d734821cb88785d8b809ddc04f}{Matrix\_equals}}(\mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ m1,\ \mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ m2);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00087\ \mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ \mbox{\hyperlink{_matrix_8h_a9174086b3e85a9d200e6afd47ec31b9a}{Matrix\_copy}}(\mbox{\hyperlink{struct_matrix}{Matrix}}\ *\ mat);}
+
+\end{DoxyCode}

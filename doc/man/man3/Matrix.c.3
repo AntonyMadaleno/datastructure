@@ -1,0 +1,246 @@
+.TH "src/Matrix.c" 3 "Fri Jan 13 2023" "Version 1.0" "Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/Matrix.c \- Implement \fBMatrix\&.h\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include 'math\&.h'\fP
+.br
+\fC#include 'Matrix\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMatrix\fP * \fBMatrix_generate\fP (unsigned short n_cols, unsigned short n_rows)"
+.br
+.RI "generate a matrix containings zeros\&. "
+.ti -1c
+.RI "float * \fBMatrix_at\fP (\fBMatrix\fP *mat, unsigned short i, unsigned short j)"
+.br
+.RI "return pointer to value at position mat[i][j] "
+.ti -1c
+.RI "unsigned char \fBMatrix_setAt\fP (\fBMatrix\fP *mat, unsigned short i, unsigned short j, float x)"
+.br
+.RI "set value at position mat[i][j] to value x "
+.ti -1c
+.RI "void \fBMatrix_scalarMultiply\fP (\fBMatrix\fP *mat, float x)"
+.br
+.RI "multiply every values in mat by x "
+.ti -1c
+.RI "\fBMatrix\fP * \fBMatrix_multiply\fP (\fBMatrix\fP *m1, \fBMatrix\fP *m2)"
+.br
+.RI "multiply 2 \fBMatrix\fP m1 * m2 "
+.ti -1c
+.RI "\fBMatrix\fP * \fBMatrix_addition\fP (\fBMatrix\fP *m1, \fBMatrix\fP *m2)"
+.br
+.RI "add two matrix together "
+.ti -1c
+.RI "\fBMatrix\fP * \fBMatrix_substract\fP (\fBMatrix\fP *m1, \fBMatrix\fP *m2)"
+.br
+.RI "substract m2 from m1 "
+.ti -1c
+.RI "bool \fBMatrix_equals\fP (\fBMatrix\fP *m1, \fBMatrix\fP *m2)"
+.br
+.RI "return if two given \fBMatrix\fP are equals "
+.ti -1c
+.RI "\fBMatrix\fP * \fBMatrix_copy\fP (\fBMatrix\fP *mat)"
+.br
+.RI "copy \fBMatrix\fP and return pointer to copy "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Implement \fBMatrix\&.h\fP\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Antony Madaleno 
+.RE
+.PP
+\fBVersion\fP
+.RS 4
+1\&.0 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+12-01-2023 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "\fBMatrix\fP * Matrix_addition (\fBMatrix\fP * m1, \fBMatrix\fP * m2)"
+
+.PP
+add two matrix together 
+.PP
+\fBParameters\fP
+.RS 4
+\fIm1\fP pointer to \fBMatrix\fP 
+.br
+\fIm2\fP pointer to \fBMatrix\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to result matrix 
+.RE
+.PP
+
+.SS "float * Matrix_at (\fBMatrix\fP * mat, unsigned short i, unsigned short j)"
+
+.PP
+return pointer to value at position mat[i][j] 
+.PP
+\fBParameters\fP
+.RS 4
+\fImat\fP a pointer to a matrix 
+.br
+\fIi\fP column position 
+.br
+\fIj\fP row position 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to value at given position in matrix 
+.RE
+.PP
+
+.SS "\fBMatrix\fP * Matrix_copy (\fBMatrix\fP * mat)"
+
+.PP
+copy \fBMatrix\fP and return pointer to copy 
+.PP
+\fBParameters\fP
+.RS 4
+\fImat\fP pointer to matrix 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to \fBMatrix\fP copy of mat 
+.RE
+.PP
+
+.SS "bool Matrix_equals (\fBMatrix\fP * m1, \fBMatrix\fP * m2)"
+
+.PP
+return if two given \fBMatrix\fP are equals 
+.PP
+\fBParameters\fP
+.RS 4
+\fIm1\fP 
+.br
+\fIm2\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if equals else false 
+.RE
+.PP
+
+.SS "\fBMatrix\fP * Matrix_generate (unsigned short n_cols, unsigned short n_rows)"
+
+.PP
+generate a matrix containings zeros\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIn_cols\fP unsigned short, number of columns in the matrix 
+.br
+\fIn_rows\fP unsigned short, number of rows in the matrix 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+a pointer to a matrix of size (n_cols, n_rows) containing zeros 
+.RE
+.PP
+
+.SS "\fBMatrix\fP * Matrix_multiply (\fBMatrix\fP * m1, \fBMatrix\fP * m2)"
+
+.PP
+multiply 2 \fBMatrix\fP m1 * m2 
+.PP
+\fBParameters\fP
+.RS 4
+\fIm1\fP pointer to \fBMatrix\fP 
+.br
+\fIm2\fP pointer to \fBMatrix\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to resultant \fBMatrix\fP 
+.RE
+.PP
+
+.SS "void Matrix_scalarMultiply (\fBMatrix\fP * mat, float x)"
+
+.PP
+multiply every values in mat by x 
+.PP
+\fBParameters\fP
+.RS 4
+\fImat\fP pointer to \fBMatrix\fP 
+.br
+\fIx\fP float value 
+.RE
+.PP
+
+.SS "unsigned char Matrix_setAt (\fBMatrix\fP * mat, unsigned short i, unsigned short j, float x)"
+
+.PP
+set value at position mat[i][j] to value x 
+.PP
+\fBParameters\fP
+.RS 4
+\fImat\fP pointer to \fBMatrix\fP 
+.br
+\fIi\fP column position 
+.br
+\fIj\fP row position 
+.br
+\fIx\fP float value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 if problem occured, 1 otherwise 
+.RE
+.PP
+
+.SS "\fBMatrix\fP * Matrix_substract (\fBMatrix\fP * m1, \fBMatrix\fP * m2)"
+
+.PP
+substract m2 from m1 
+.PP
+\fBParameters\fP
+.RS 4
+\fIm1\fP pointer to \fBMatrix\fP 
+.br
+\fIm2\fP pointer to \fBMatrix\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to result matrix 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Project from the source code\&.

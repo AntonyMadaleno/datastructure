@@ -1,0 +1,575 @@
+.TH "src/Vec.h" 3 "Fri Jan 13 2023" "Version 1.0" "Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/Vec.h \- Header for struct \fBVec2\fP, \fBVec3\fP and \fBVec4\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBVec2\fP"
+.br
+.RI "Vector containing 2 floats x,y\&. "
+.ti -1c
+.RI "struct \fBVec3\fP"
+.br
+.RI "Vector containing 3 floats x,y,z\&. "
+.ti -1c
+.RI "struct \fBVec4\fP"
+.br
+.RI "Vector containing 4 floats x,y,z,w\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBVec2\fP \fBVec2\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBVec3\fP \fBVec3\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBVec4\fP \fBVec4\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "unsigned char \fBVec2_set\fP (\fBVec2\fP *v, float x, float y)"
+.br
+.RI "Function to set value of given 2D vector to given x,y\&. "
+.ti -1c
+.RI "unsigned char \fBVec3_set\fP (\fBVec3\fP *v, float x, float y, float z)"
+.br
+.RI "Function to set value of given 3D vector to given x,y,z\&. "
+.ti -1c
+.RI "unsigned char \fBVec4_set\fP (\fBVec4\fP *v, float x, float y, float z, float w)"
+.br
+.RI "Function to set value of given 4D vector to given x,y,z\&. "
+.ti -1c
+.RI "float \fBVec2_length\fP (\fBVec2\fP *v)"
+.br
+.RI "Function to calculate length of said vector\&. "
+.ti -1c
+.RI "float \fBVec3_length\fP (\fBVec3\fP *v)"
+.br
+.RI "Function to calculate length of said vector\&. "
+.ti -1c
+.RI "float \fBVec4_length\fP (\fBVec4\fP *v)"
+.br
+.RI "Function to calculate length of said vector\&. "
+.ti -1c
+.RI "float \fBVec2_length2\fP (\fBVec2\fP *v)"
+.br
+.RI "Function to calculate square length of said vector\&. "
+.ti -1c
+.RI "float \fBVec3_length2\fP (\fBVec3\fP *v)"
+.br
+.RI "Function to calculate square length of said vector\&. "
+.ti -1c
+.RI "float \fBVec4_length2\fP (\fBVec4\fP *v)"
+.br
+.RI "Function to calculate square length of said vector\&. "
+.ti -1c
+.RI "float \fBVec2_dist\fP (\fBVec2\fP *v, \fBVec2\fP *u)"
+.br
+.RI "Function to calculate distance in between 2 vertices\&. "
+.ti -1c
+.RI "float \fBVec3_dist\fP (\fBVec3\fP *v, \fBVec3\fP *u)"
+.br
+.RI "Function to calculate distance in between 2 vertices\&. "
+.ti -1c
+.RI "float \fBVec4_dist\fP (\fBVec4\fP *v, \fBVec4\fP *u)"
+.br
+.RI "Function to calculate distance in between 2 vertices\&. "
+.ti -1c
+.RI "float \fBVec2_dist2\fP (\fBVec2\fP *v, \fBVec2\fP *u)"
+.br
+.RI "Function to calculate distance in between 2 vertices\&. "
+.ti -1c
+.RI "float \fBVec3_dist2\fP (\fBVec3\fP *v, \fBVec3\fP *u)"
+.br
+.RI "Function to calculate distance in between 2 vertices\&. "
+.ti -1c
+.RI "float \fBVec4_dist2\fP (\fBVec4\fP *v, \fBVec4\fP *u)"
+.br
+.RI "Function to calculate distance in between 2 vertices\&. "
+.ti -1c
+.RI "unsigned char \fBVec2_to_Vec3\fP (\fBVec3\fP *dest, \fBVec2\fP *src)"
+.br
+.RI "transform given \fBVec2\fP to \fBVec3\fP by setting z to 0 into a \fBVec4\fP pointer "
+.ti -1c
+.RI "unsigned char \fBVec2_to_Vec4\fP (\fBVec4\fP *dest, \fBVec2\fP *src)"
+.br
+.RI "transform given \fBVec2\fP to \fBVec4\fP by setting z,w to 0 into a \fBVec4\fP pointer "
+.ti -1c
+.RI "unsigned char \fBVec3_to_Vec4\fP (\fBVec4\fP *dest, \fBVec3\fP *src)"
+.br
+.RI "transform given \fBVec3\fP to \fBVec4\fP by setting w to 0 into a \fBVec4\fP pointer "
+.ti -1c
+.RI "float \fBVec2_dot\fP (\fBVec2\fP *v, \fBVec2\fP *u)"
+.br
+.RI "return dot value of two vectors "
+.ti -1c
+.RI "float \fBVec3_dot\fP (\fBVec3\fP *v, \fBVec3\fP *u)"
+.br
+.ti -1c
+.RI "float \fBVec4_dot\fP (\fBVec4\fP *v, \fBVec4\fP *u)"
+.br
+.ti -1c
+.RI "unsigned char \fBVec2_normalize\fP (\fBVec2\fP *v)"
+.br
+.RI "normalize given vector "
+.ti -1c
+.RI "unsigned char \fBVec3_normalize\fP (\fBVec3\fP *v)"
+.br
+.RI "normalize given vector "
+.ti -1c
+.RI "unsigned char \fBVec4_normalize\fP (\fBVec4\fP *v)"
+.br
+.RI "normalize given vector "
+.ti -1c
+.RI "\fBVec3\fP * \fBVec3_cross\fP (\fBVec3\fP *v, \fBVec3\fP *u)"
+.br
+.RI "function that calculate cross product of vectors v and u "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Header for struct \fBVec2\fP, \fBVec3\fP and \fBVec4\fP\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Antony Madaleno 
+.RE
+.PP
+\fBVersion\fP
+.RS 4
+1\&.0 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+12-01-2023
+.RE
+.PP
+Header pour les struct \fBVec2\fP, \fBVec3\fP, \fBVec4\fP 
+.SH "Function Documentation"
+.PP 
+.SS "float Vec2_dist (\fBVec2\fP * v, \fBVec2\fP * u)"
+
+.PP
+Function to calculate distance in between 2 vertices\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Pointer to vector 
+.br
+\fIu\fP Pointer to vector 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+distance in between given vertices as float, if v or u is nullptr return -1 
+.RE
+.PP
+
+.SS "float Vec2_dist2 (\fBVec2\fP * v, \fBVec2\fP * u)"
+
+.PP
+Function to calculate distance in between 2 vertices\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Pointer to vector 
+.br
+\fIu\fP Pointer to vector 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+square distance in between given vertices as float, if v or u is nullptr return -1 
+.RE
+.PP
+
+.SS "float Vec2_dot (\fBVec2\fP * v, \fBVec2\fP * u)"
+
+.PP
+return dot value of two vectors 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP pointer \fBVec2\fP 
+.br
+\fIu\fP pointer \fBVec2\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+dot value of two vectors as a float, If one of the 2 vectors is nullptr return 0 
+.RE
+.PP
+
+.SS "float Vec2_length (\fBVec2\fP * v)"
+
+.PP
+Function to calculate length of said vector\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Pointer to vector 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+length of the vector as float if v is nullptr return -1 
+.RE
+.PP
+
+.SS "float Vec2_length2 (\fBVec2\fP * v)"
+
+.PP
+Function to calculate square length of said vector\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Pointer to vector 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+length of the vector as float if v is nullptr return -1 
+.RE
+.PP
+
+.SS "unsigned char Vec2_normalize (\fBVec2\fP * v)"
+
+.PP
+normalize given vector 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP pointer to \fBVec2\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 if v is nullptr else if length of v is not 0 return 1 else return 2 as unsigned char 
+.RE
+.PP
+
+.SS "unsigned char Vec2_set (\fBVec2\fP * v, float x, float y)"
+
+.PP
+Function to set value of given 2D vector to given x,y\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Pointer to vector 
+.br
+\fIx\fP Float value used to set x value inside vector v 
+.br
+\fIy\fP Float value used to set y value inside vector v 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 if v is nullptr, 1 if values are set correctly 
+.RE
+.PP
+
+.SS "unsigned char Vec2_to_Vec3 (\fBVec3\fP * dest, \fBVec2\fP * src)"
+
+.PP
+transform given \fBVec2\fP to \fBVec3\fP by setting z to 0 into a \fBVec4\fP pointer 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdest\fP \fBVec3\fP to receipt data 
+.br
+\fIsrc\fP \fBVec2\fP source to transform 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 if src is nullptr else 1 
+.RE
+.PP
+
+.SS "unsigned char Vec2_to_Vec4 (\fBVec4\fP * dest, \fBVec2\fP * src)"
+
+.PP
+transform given \fBVec2\fP to \fBVec4\fP by setting z,w to 0 into a \fBVec4\fP pointer 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdest\fP \fBVec4\fP to receipt data 
+.br
+\fIsrc\fP \fBVec2\fP source to transform 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 if src is nullptr else 1 
+.RE
+.PP
+
+.SS "\fBVec3\fP * Vec3_cross (\fBVec3\fP * v, \fBVec3\fP * u)"
+
+.PP
+function that calculate cross product of vectors v and u 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP pointer to \fBVec3\fP 
+.br
+\fIu\fP pointer to \fBVec3\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to \fBVec3\fP that is the cross product of v,u 
+.RE
+.PP
+
+.SS "float Vec3_dist (\fBVec3\fP * v, \fBVec3\fP * u)"
+
+.PP
+Function to calculate distance in between 2 vertices\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Pointer to vector 
+.br
+\fIu\fP Pointer to vector 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+distance in between given vertices as float, if v or u is nullptr return -1 
+.RE
+.PP
+
+.SS "float Vec3_dist2 (\fBVec3\fP * v, \fBVec3\fP * u)"
+
+.PP
+Function to calculate distance in between 2 vertices\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Pointer to vector 
+.br
+\fIu\fP Pointer to vector 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+square distance in between given vertices as float, if v or u is nullptr return -1 
+.RE
+.PP
+
+.SS "float Vec3_length (\fBVec3\fP * v)"
+
+.PP
+Function to calculate length of said vector\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Pointer to vector 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+length of the vector as float if v is nullptr return -1 
+.RE
+.PP
+
+.SS "float Vec3_length2 (\fBVec3\fP * v)"
+
+.PP
+Function to calculate square length of said vector\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Pointer to vector 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+length of the vector as float if v is nullptr return -1 
+.RE
+.PP
+
+.SS "unsigned char Vec3_normalize (\fBVec3\fP * v)"
+
+.PP
+normalize given vector 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP pointer to \fBVec3\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 if v is nullptr else if length of v is not 0 return 1 else return 2 as unsigned char 
+.RE
+.PP
+
+.SS "unsigned char Vec3_set (\fBVec3\fP * v, float x, float y, float z)"
+
+.PP
+Function to set value of given 3D vector to given x,y,z\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Pointer to vector 
+.br
+\fIx\fP Float value used to set x value inside vector v 
+.br
+\fIy\fP Float value used to set y value inside vector v 
+.br
+\fIz\fP Float value used to set z value inside vector v 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 if v is nullptr, 1 if values are set correctly 
+.RE
+.PP
+
+.SS "unsigned char Vec3_to_Vec4 (\fBVec4\fP * dest, \fBVec3\fP * src)"
+
+.PP
+transform given \fBVec3\fP to \fBVec4\fP by setting w to 0 into a \fBVec4\fP pointer 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdest\fP \fBVec4\fP to receipt data 
+.br
+\fIsrc\fP \fBVec3\fP source to transform 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 if src is nullptr else 1 
+.RE
+.PP
+
+.SS "float Vec4_dist (\fBVec4\fP * v, \fBVec4\fP * u)"
+
+.PP
+Function to calculate distance in between 2 vertices\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Pointer to vector 
+.br
+\fIu\fP Pointer to vector 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+distance in between given vertices as float, if v or u is nullptr return -1 
+.RE
+.PP
+
+.SS "float Vec4_dist2 (\fBVec4\fP * v, \fBVec4\fP * u)"
+
+.PP
+Function to calculate distance in between 2 vertices\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Pointer to vector 
+.br
+\fIu\fP Pointer to vector 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+square distance in between given vertices as float, if v or u is nullptr return -1 
+.RE
+.PP
+
+.SS "float Vec4_length (\fBVec4\fP * v)"
+
+.PP
+Function to calculate length of said vector\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Pointer to vector 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+length of the vector as float if v is nullptr return -1 
+.RE
+.PP
+
+.SS "float Vec4_length2 (\fBVec4\fP * v)"
+
+.PP
+Function to calculate square length of said vector\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Pointer to vector 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+length of the vector as float if v is nullptr return -1 
+.RE
+.PP
+
+.SS "unsigned char Vec4_normalize (\fBVec4\fP * v)"
+
+.PP
+normalize given vector 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP pointer to \fBVec4\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 if v is nullptr else if length of v is not 0 return 1 else return 2 as unsigned char 
+.RE
+.PP
+
+.SS "unsigned char Vec4_set (\fBVec4\fP * v, float x, float y, float z, float w)"
+
+.PP
+Function to set value of given 4D vector to given x,y,z\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Pointer to vector 
+.br
+\fIx\fP Float value used to set x value inside vector v 
+.br
+\fIy\fP Float value used to set y value inside vector v 
+.br
+\fIz\fP Float value used to set z value inside vector v 
+.br
+\fIw\fP Float value used to set w value inside vector v 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 if v is nullptr, 1 if values are set correctly 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Project from the source code\&.
