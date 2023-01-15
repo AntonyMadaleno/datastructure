@@ -9,6 +9,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "math.h"
 #include "Matrix.h"
 
@@ -121,11 +122,134 @@ Matrix * Matrix_copy(Matrix * mat)
     if (mat == NULL)
         return NULL;
 
-    Matrix * cpy = (Matrix *) calloc( 1, sizeof( Matrix ));
-    memcpy(cpy, mat, 1)
-    
-    cpy->data = (float *) calloc( 1, (size_t) sizeof( float ) * cpy->n_cols * cpy->n_rows);
-    memcpy(cpy->data, mat->data, cpy->n_cols * cpy->n_rows);
+    Matrix * cpy = Matrix_generate(mat->n_cols, mat->n_rows);
+
+    for (unsigned int i = 0; i < mat->n_cols * mat->n_rows; i++)
+        cpy->data[i] = mat->data[i];
 
     return cpy;
+}
+
+float Matrix_determinant(Matrix * mat)
+{
+    if (mat != NULL && mat->n_cols != mat->n_rows)
+        exit(-1);
+    else if (mat->n_cols == 1)
+        return * Matrix_at(mat, 0, 0);
+    else if (mat->n_cols == 2)
+        return ( * Matrix_at(mat, 0, 0) ) * ( * Matrix_at(mat, 1, 1) ) - ( * Matrix_at(mat, 1, 0) ) * ( * Matrix_at(mat, 0, 1) );
+
+
+    float result = 0;
+
+    //for each column of matrix
+    for (unsigned short i = 0; i < mat->n_cols; i++)
+    {
+        Matrix * tmp = Matrix_generate(mat->n_cols - 1, mat->n_rows - 1);
+        //for each row under the first one
+        for (unsigned short j = 1; j < mat->n_rows; j++)
+        {
+            //for each colum of matrix
+            for (unsigned short k = 0; k < mat->n_cols; k++)
+            {
+                if (k < i)
+                    Matrix_setAt( tmp, k, j-1, * Matrix_at(mat, k, j) );
+                else if (k > i)
+                    Matrix_setAt( tmp, k-1, j-1, * Matrix_at(mat, k, j) );
+            }
+        }
+
+        if (i % 2 == 0)
+            result += ( * Matrix_at(mat, i, 0) ) * Matrix_determinant(tmp);
+        else   
+            result -= ( * Matrix_at(mat, i, 0) ) * Matrix_determinant(tmp);
+
+        Matrix_free(tmp);
+    }
+
+    return result;
+}
+
+void Matrix_orderRows(Matrix * m)
+{
+    unsigned short * indices = (unsigned short *) calloc( m->n_rows, sizeof(unsigned short) );
+    int * leads = (int *) calloc( m->n_rows, sizeof( int ) );
+
+    //FOR EACH ROW SEARCH FIRST NON-ZEROS VALUE POSITION
+    for (unsigned short j = 0; j < m->n_rows; j++)
+    {
+        for (unsigned short i = 0; i < m->n_cols; i++)
+        {
+            if ( * Matrix_at(m, i, j) != 0 )
+            {
+                leads[j] = i;
+                i = m->n_cols;
+            }
+        }
+    }
+
+    for (unsigned short i = 0; i < m->n_rows; i++)
+    {
+        int smallest_found = -1;
+        int position_found = -1;
+        //FOR EACH ROW WE COMPARE POSITION OF FIRST NON-ZERO
+        for (unsigned short a = 0; a < m->n_rows; a++)
+        {
+            if ( smallest_found == -1 || smallest_found > leads[a] && leads[a] >= 0 )
+            {
+                smallest_found = leads[a];
+                position_found = a;
+            }
+        }
+        indices[i] = position_found;
+        leads[position_found] = -1;
+    }
+
+    Matrix * cpy = Matrix_copy(m);
+
+    for (unsigned short row = 0; row < m->n_rows; row++)
+    {
+        for (unsigned short col = 0; col < m->n_cols; col++)
+        {
+            Matrix_setAt(m, col, row, * Matrix_at(cpy, col, indices[row]) );
+        }
+    }
+
+    free(indices);
+    free(leads);
+    Matrix_free(cpy);
+}
+
+/**
+float Matrix_determinant(Matrix * mat)
+{
+    if (mat != NULL && mat->n_cols != mat->n_rows)
+        exit(-1);
+    else if (mat->n_cols == 1)
+        return * Matrix_at(mat, 0, 0);
+    else if (mat->n_cols == 2)
+        return ( * Matrix_at(mat, 0, 0) ) * ( * Matrix_at(mat, 1, 1) ) - ( * Matrix_at(mat, 1, 0) ) * ( * Matrix_at(mat, 0, 1) );
+
+
+    Matrix * m = Matrix_copy(mat);
+    Matrix_orderRows(m);
+
+    for (unsigned short i = 0; i < m->n_rows - 1; i++)
+    {
+        for (unsigned short j = i; j < m->n_rows; j++)
+        {
+
+        }
+    }
+
+    free(m);
+    return result;
+}
+**/
+
+void Matrix_free(Matrix * m)
+{
+    free(m->data);
+    free(m);
+    return;
 }

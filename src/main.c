@@ -8,27 +8,19 @@
 
 void main()
 {
-    Matrix * m1 = Matrix_generate( 2000, 2000 );
+    srand( time( NULL ) );
+
+    Matrix * m1 = Matrix_generate( 12, 12 );
 
     for (unsigned short i = 0; i < m1->n_cols; i++)
         for (unsigned short j = 0; j < m1->n_rows; j++)
-            Matrix_setAt(m1, i, j, 4*i + j + 1);
+            Matrix_setAt(m1, i, j, -1 + rand() % 3);
 
-    Matrix * m2 = Matrix_generate( 2000, 2000 );
+    //clock_t start = clock();
+    //printf("%3.2f\n", Matrix_determinant(m1) );
+    //clock_t end = clock();
 
-    for (unsigned short i = 0; i < m2->n_cols; i++)
-        for (unsigned short j = 0; j < m2->n_rows; j++)
-            Matrix_setAt(m2, i, j, i + 2*j + 1);
+    //printf("TIME SPENT CALCULATINF DETERMINANT = %3.3fs\n", (double) (end - start)/CLOCKS_PER_SEC );
 
-    clock_t start = clock();
-
-    Matrix * r = Matrix_multiply(m1, m2);
-
-    clock_t end = clock();
-
-    printf("time spent on multiply = %3.2f s\n", (double) (end - start)/CLOCKS_PER_SEC );
-
-    free(m1);
-    free(m2);
-    free(r);
+    Matrix_free(m1);
 }

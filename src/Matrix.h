@@ -85,3 +85,17 @@ bool Matrix_equals(Matrix * m1, Matrix * m2);
 /// @param mat pointer to matrix
 /// @return pointer to Matrix copy of mat
 Matrix * Matrix_copy(Matrix * mat);
+
+/// @fn Matrix * Matrix_copy(Matrix * mat);
+/// @brief calculate determinant of matrix
+/// @param mat pointer to matrix
+/// @return determinant of matrix
+float Matrix_determinant(Matrix * mat);
+
+/// @fn void Matrix_free(Matrix * m);
+/// @brief free memory used by Matrix
+/// @param mat pointer to matrix
+void Matrix_free(Matrix * m);
+
+void Matrix_orderRows(Matrix * m);
+
