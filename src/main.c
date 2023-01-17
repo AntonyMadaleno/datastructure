@@ -5,22 +5,36 @@
 
 #include "Vec.h"
 #include "Matrix.h"
+#include "Image.h"
 
 void main()
 {
-    srand( time( NULL ) );
 
-    Matrix * m1 = Matrix_generate( 12, 12 );
+    //OPEN IMAGE INTO AN IMAGE STRUCT
+    Image * i0 = Image_import("img/city.bmp");
 
-    for (unsigned short i = 0; i < m1->n_cols; i++)
-        for (unsigned short j = 0; j < m1->n_rows; j++)
-            Matrix_setAt(m1, i, j, -1 + rand() % 3);
+    Matrix * gx = Matrix_generate(3,3);
 
-    //clock_t start = clock();
-    //printf("%3.2f\n", Matrix_determinant(m1) );
-    //clock_t end = clock();
+    Matrix_setAt(gx, 0, 0, -1);
+    Matrix_setAt(gx, 0, 1, -2);
+    Matrix_setAt(gx, 0, 2, -1);
 
-    //printf("TIME SPENT CALCULATINF DETERMINANT = %3.3fs\n", (double) (end - start)/CLOCKS_PER_SEC );
+    Matrix_setAt(gx, 1, 0, -2);
+    Matrix_setAt(gx, 1, 1, 12);
+    Matrix_setAt(gx, 1, 2, -2);
 
-    Matrix_free(m1);
+    Matrix_setAt(gx, 2, 0, -1);
+    Matrix_setAt(gx, 2, 1, -2);
+    Matrix_setAt(gx, 2, 2, -1);
+
+    Image * i1 = Image_applyMatrix(i0, gx);
+    Vec3 * v = (Vec3 *) calloc( 1, sizeof(Vec3) );
+    Vec3_set(v, 0.1, 0.2, 0.4);
+    Image_applyTreshold(i1, v);
+    free(v);
+
+    Image_export(i1, "output_img/test.bmp");
+
+    Image_free(i0);
+    Image_free(i1);
 }

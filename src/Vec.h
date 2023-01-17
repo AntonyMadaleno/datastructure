@@ -247,3 +247,18 @@ unsigned char Vec4_normalize(Vec4 * v);
 /// @return pointer to Vec3 that is the cross product of v,u
 Vec3 * Vec3_cross(Vec3 * v, Vec3 * u);
 
+/// @fn void Vec2_print(Vec2 * v);
+/// @brief print info about vector in console
+/// @param v pointer to vector
+void Vec2_print(Vec2 * v);
+
+/// @fn void Vec2_print(Vec2 * v);
+/// @brief print info about vector in console
+/// @param v pointer to vector
+void Vec3_print(Vec3 * v);
+
+/// @fn void Vec2_print(Vec2 * v);
+/// @brief print info about vector in console
+/// @param v pointer to vector
+void Vec4_print(Vec4 * v);
+

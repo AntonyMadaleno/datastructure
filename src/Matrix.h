@@ -12,6 +12,8 @@
 #pragma once
 #include <stdbool.h>
 
+#define MATRIX_IMPLEMENTATION
+
 /**
  * @struct Matrix
  * @brief Matrix contain its number of rows and colums and a pointeur to its data (floats)
@@ -97,5 +99,19 @@ float Matrix_determinant(Matrix * mat);
 /// @param mat pointer to matrix
 void Matrix_free(Matrix * m);
 
+/// @fn void Matrix_orderRows(Matrix * m);
+/// @brief order Matrix given its rows
+/// @param m pointer to Matrix
 void Matrix_orderRows(Matrix * m);
+
+/// @fn Matrix * Matrix_getTransposed(Matrix * m);
+/// @brief calculate and return Transposed Matrix
+/// @param m pointer to Matrix
+/// @return pointer to Transposed Matrix
+Matrix * Matrix_getTransposed(Matrix * m);
+
+/// @fn void Matrix_print(Matrix * m);
+/// @brief print information of matrix in console
+/// @param m pointer to Matrix
+void Matrix_print(Matrix * m);
 

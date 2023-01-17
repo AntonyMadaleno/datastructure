@@ -220,36 +220,31 @@ void Matrix_orderRows(Matrix * m)
     Matrix_free(cpy);
 }
 
-/**
-float Matrix_determinant(Matrix * mat)
-{
-    if (mat != NULL && mat->n_cols != mat->n_rows)
-        exit(-1);
-    else if (mat->n_cols == 1)
-        return * Matrix_at(mat, 0, 0);
-    else if (mat->n_cols == 2)
-        return ( * Matrix_at(mat, 0, 0) ) * ( * Matrix_at(mat, 1, 1) ) - ( * Matrix_at(mat, 1, 0) ) * ( * Matrix_at(mat, 0, 1) );
-
-
-    Matrix * m = Matrix_copy(mat);
-    Matrix_orderRows(m);
-
-    for (unsigned short i = 0; i < m->n_rows - 1; i++)
-    {
-        for (unsigned short j = i; j < m->n_rows; j++)
-        {
-
-        }
-    }
-
-    free(m);
-    return result;
-}
-**/
-
 void Matrix_free(Matrix * m)
 {
     free(m->data);
     free(m);
     return;
+}
+
+Matrix * Matrix_getTransposed(Matrix * m)
+{
+    Matrix * trans = Matrix_generate(m->n_rows, m->n_cols);
+
+    for (unsigned short i = 0; i < m->n_cols; i++)
+        for (unsigned short j = 0; j < m->n_rows; j++)
+            Matrix_setAt(trans, j, i, * Matrix_at( m, i, j ) );
+
+    return trans;
+}
+
+void Matrix_print(Matrix * m)
+{
+    for (unsigned short i = 0; i < m->n_cols; i++)
+    {
+        for (unsigned short j = 0; j < m->n_rows; j++)
+            printf("%3.2f\t", * Matrix_at(m, i, j) );
+
+        printf("\n");
+    }
 }

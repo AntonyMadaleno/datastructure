@@ -326,3 +326,18 @@ Vec3 * Vec3_cross(Vec3 * v, Vec3 * u)
 
     return n;
 }
+
+void Vec2_print(Vec2 * v)
+{
+    printf("(%3.2f,\t%3.2f)\n", v->x, v->y);
+}
+
+void Vec3_print(Vec3 * v)
+{
+    printf("(%3.2f,\t%3.2f,\t%3.2f)\n", v->x, v->y, v->z);
+}
+
+void Vec4_print(Vec4 * v)
+{
+    printf("(%3.2f,\t%3.2f,\t%3.2f,\t%3.2f)\n", v->x, v->y, v->z, v->w);
+}
