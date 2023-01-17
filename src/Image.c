@@ -291,6 +291,9 @@ Image * Image_applyMatrix(Image * img, Matrix * mat)
 
 void Image_applyTreshold(Image * img, Vec3 * v)
 {
+    if (img == NULL || v == NULL)
+        return;
+
     for (unsigned short y = 0; y < img->height; y++)
     {
         for (unsigned short x = 0; x < img->width; x++)
@@ -306,4 +309,80 @@ void Image_applyTreshold(Image * img, Vec3 * v)
             free(pix);
         }
     }
+}
+
+Image * Image_medianFilter(Image * img, unsigned short s)
+{
+    if (img == NULL || s % 2 != 1)
+        return NULL;
+
+    Image * out = Image_set(img->height, img->width);
+    short offset = (s-1)/2;
+
+    for (unsigned short y = 0; y < img->height; y++)
+    {
+        for (unsigned short x = 0; x < img->width; x++)
+        {
+            if ( x < offset || y < offset || x > img->width -offset -1 || y > img->height -offset -1 )
+            {
+                Vec3 * pix = Image_getPixel(img, x, y);
+                Image_setPixel( out, x, y, pix );
+                free(pix);
+            }
+            else
+            {
+                Vec3 * pix = (Vec3 *) calloc( 1, sizeof(Vec3) );
+
+                float * r_channel = (float *) calloc( s*s, sizeof(float) );
+                float * g_channel = (float *) calloc( s*s, sizeof(float) );
+                float * b_channel = (float *) calloc( s*s, sizeof(float) );
+
+                for (unsigned short r = 0; r < s; r++)
+                {
+                    for (unsigned short c = 0; c < s; c++)
+                    {
+                        Vec3 * vec = Image_getPixel( img, x + c - offset, y + r - offset);
+                        r_channel[c + r*s] = vec->x;
+                        g_channel[c + r*s] = vec->y;
+                        b_channel[c + r*s] = vec->z;
+                        free(vec);
+                    }
+                }
+
+                float f;
+                for (unsigned short i = 0; i < s*s -1; i++)
+                    for (unsigned short j = i + 1; j < s*s; j++)
+                    {
+                        if (r_channel[i] > r_channel[j])
+                        {
+                            f = r_channel[i];
+                            r_channel[i] = r_channel[j];
+                            r_channel[j] = f;
+                        }
+
+                        if (g_channel[i] > g_channel[j])
+                        {
+                            f = g_channel[i];
+                            g_channel[i] = g_channel[j];
+                            g_channel[j] = f;
+                        }
+
+                        if (b_channel[i] > b_channel[j])
+                        {
+                            f = b_channel[i];
+                            b_channel[i] = b_channel[j];
+                            b_channel[j] = f;
+                        }
+                    }
+
+                unsigned short med = (s*s - 1)/2;
+                Vec3_set(pix, r_channel[med], g_channel[med], b_channel[med]);
+                Image_setPixel(out, x, y, pix);
+                free(pix);
+            }
+        }
+    }
+
+    return out;
+
 }

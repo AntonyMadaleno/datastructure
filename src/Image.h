@@ -68,3 +68,11 @@ Image * Image_applyMatrix(Image * img, Matrix * mat);
 /// @brief 
 /// @param x 
 void Image_applyTreshold(Image * img, Vec3 * v);
+
+
+/// @brief 
+/// @param img pointer to original image
+/// @param s size of filtering
+/// @return pointer to resulting image
+Image * Image_medianFilter(Image * img, unsigned short s);
+
