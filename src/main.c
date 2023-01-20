@@ -2,39 +2,36 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include <math.h>
+#include <complex.h>
+#include <string.h>
 
 #include "Vec.h"
 #include "Matrix.h"
 #include "Image.h"
+#include "fft.h"
 
 void main()
 {
 
-    //OPEN IMAGE INTO AN IMAGE STRUCT
-    Image * i0 = Image_import("img/city.bmp");
+    //load image
+    Image * i0 = Image_import("img/earth.bmp");
 
-    Matrix * gx = Matrix_generate(3,3);
+    //do treatment on it and save some results
+    Matrix ** fR = Matrix_fft(i0->R);
+    Matrix ** fG = Matrix_fft(i0->G);
+    Matrix ** fB = Matrix_fft(i0->B);
 
-    Matrix_setAt(gx, 0, 0, -1);
-    Matrix_setAt(gx, 0, 1, -2);
-    Matrix_setAt(gx, 0, 2, -1);
+    Matrix * xR = Matrix_ifft(fR);
+    Matrix * xG = Matrix_ifft(fG);
+    Matrix * xB = Matrix_ifft(fB);
 
-    Matrix_setAt(gx, 1, 0, -2);
-    Matrix_setAt(gx, 1, 1, 12);
-    Matrix_setAt(gx, 1, 2, -2);
+    i0->R = xR;
+    i0->G = xG;
+    i0->B = xB;
 
-    Matrix_setAt(gx, 2, 0, -1);
-    Matrix_setAt(gx, 2, 1, -2);
-    Matrix_setAt(gx, 2, 2, -1);
+    Image_export(i0, "output_img/testifft.bmp");
 
-    Image * i1 = Image_applyMatrix(i0, gx);
-    Vec3 * v = (Vec3 *) calloc( 1, sizeof(Vec3) );
-    Vec3_set(v, 0.1, 0.2, 0.4);
-    Image_applyTreshold(i1, v);
-    free(v);
-
-    Image_export(i1, "output_img/test.bmp");
-
+    //free memory
     Image_free(i0);
-    Image_free(i1);
 }

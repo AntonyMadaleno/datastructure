@@ -248,3 +248,101 @@ void Matrix_print(Matrix * m)
         printf("\n");
     }
 }
+
+Matrix ** Matrix_fft(Matrix * m)
+{
+    Matrix * fr = Matrix_copy(m); //REAL
+    Matrix * fi = Matrix_generate(m->n_cols, m->n_rows); //IMAG
+
+    //FFT1D ON EACH ROWS
+    for (unsigned short y = 0; y < m->n_rows; y++)
+    {
+        float complex * buffer = calloc( m->n_cols, sizeof(float complex) );
+        for (unsigned short x = 0; x < m->n_cols; x++)
+        {
+            buffer[x] = * Matrix_at(fr, x, y);
+            buffer[x] += I* (* Matrix_at(fi, x, y));
+        }
+
+        float complex * freq = fft(buffer, m->n_cols);
+        for (unsigned short j = 0; j < m->n_cols; j++)
+        {
+            Matrix_setAt( fr, j, y, crealf(freq[j]) );
+            Matrix_setAt( fi, j, y, cimagf(freq[j]) );
+        }
+
+        free(buffer);
+        free(freq);
+    }
+
+    //FFT1D ON EACH COLUMNS
+    for (unsigned short x = 0; x < m->n_cols; x++)
+    {
+        float complex * buffer = calloc( m->n_rows, sizeof(float complex) );
+        for (unsigned short y = 0; y < m->n_rows; y++)
+        {
+            buffer[x] = * Matrix_at(fr, x, y);
+            buffer[x] += I* (* Matrix_at(fi, x, y));
+        }
+
+        float complex * freq = fft( buffer, m->n_rows);
+        for (unsigned short j = 0; j < m->n_rows; j++)
+        {
+            Matrix_setAt( fr, x, j, crealf(freq[j]) );
+            Matrix_setAt( fi, x, j, cimagf(freq[j]) );
+        }
+
+        free(buffer);
+        free(freq);
+    }
+
+    Matrix ** F = (Matrix **) calloc( 2 , sizeof(Matrix *) );
+    F[0] = Matrix_copy(fr); 
+    F[1] = Matrix_copy(fi);
+    free(fr);
+    free(fi);
+    return F;
+}
+
+Matrix * Matrix_ifft(Matrix ** F)
+{
+
+    Matrix * X = Matrix_generate(F[0]->n_cols, F[0]->n_rows);
+
+    //IFFT ON EACH COLUMNS
+    for (unsigned short x = 0; x < F[0]->n_cols; x++)
+    {
+        float complex * freq = (float complex *) calloc( F[0]->n_rows, sizeof(float complex) ); 
+        for (unsigned short y = 0; y < F[0]->n_rows; y++)
+            freq[y] = * Matrix_at(F[0], x, y) + I * ( * Matrix_at(F[1], x, y) );
+
+        float complex * buffer = ifft(freq, F[0]->n_rows);
+        for (unsigned short j = 0; j < F[0]->n_rows; j++)
+        {
+            Matrix_setAt(F[0], x, j, crealf(buffer[j]) );
+            Matrix_setAt(F[1], x, j, cimagf(buffer[j]) );
+        }
+
+        free(buffer);
+        free(freq);
+    }
+
+    //IFFT ON EACH ROWS
+    for (unsigned short y = 0; y < F[0]->n_rows; y++)
+    {
+        float complex * freq = (float complex *) calloc( F[0]->n_cols, sizeof(float complex) );
+        for (unsigned short x = 0; x < F[0]->n_cols; x++)
+            freq[0] = * Matrix_at(F[0], x, y) + I * ( * Matrix_at(F[1], x, y) );
+
+        float complex * buffer = ifft(freq, F[0]->n_cols);
+
+        for (unsigned short j = 0; j < F[0]->n_cols; j++)
+            Matrix_setAt(X, j, y, fabs(crealf(buffer[j])) );
+
+        free(freq);
+        free(buffer);
+    }
+
+
+    return X;
+}

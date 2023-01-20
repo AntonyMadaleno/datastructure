@@ -11,6 +11,7 @@
 
 #pragma once
 #include <stdbool.h>
+#include "fft.h"
 
 #define MATRIX_IMPLEMENTATION
 
@@ -114,4 +115,14 @@ Matrix * Matrix_getTransposed(Matrix * m);
 /// @brief print information of matrix in console
 /// @param m pointer to Matrix
 void Matrix_print(Matrix * m);
+
+/// @brief 
+/// @param m 
+/// @return 
+Matrix ** Matrix_fft(Matrix * m);
+
+/// @brief 
+/// @param m 
+/// @return 
+Matrix * Matrix_ifft(Matrix ** F);
 
