@@ -245,7 +245,7 @@ void Matrix_print(Matrix * m)
         for (unsigned short j = 0; j < m->n_rows; j++)
             printf("%3.2f\t", * Matrix_at(m, i, j) );
 
-        printf("\n");
+        printf("\n\n");
     }
 }
 
@@ -281,8 +281,8 @@ Matrix ** Matrix_fft(Matrix * m)
         float complex * buffer = calloc( m->n_rows, sizeof(float complex) );
         for (unsigned short y = 0; y < m->n_rows; y++)
         {
-            buffer[x] = * Matrix_at(fr, x, y);
-            buffer[x] += I* (* Matrix_at(fi, x, y));
+            buffer[y] = * Matrix_at(fr, x, y);
+            buffer[y] += I* (* Matrix_at(fi, x, y));
         }
 
         float complex * freq = fft( buffer, m->n_rows);
@@ -332,7 +332,7 @@ Matrix * Matrix_ifft(Matrix ** F)
     {
         float complex * freq = (float complex *) calloc( F[0]->n_cols, sizeof(float complex) );
         for (unsigned short x = 0; x < F[0]->n_cols; x++)
-            freq[0] = * Matrix_at(F[0], x, y) + I * ( * Matrix_at(F[1], x, y) );
+            freq[x] = * Matrix_at(F[0], x, y) + I * ( * Matrix_at(F[1], x, y) );
 
         float complex * buffer = ifft(freq, F[0]->n_cols);
 
@@ -345,4 +345,28 @@ Matrix * Matrix_ifft(Matrix ** F)
 
 
     return X;
+}
+
+float Matrix_min(Matrix * m)
+{
+    float min = * Matrix_at(m, 0,0);
+
+    for (unsigned short j = 0; j < m->n_rows; j++)
+        for (unsigned short i = 0; i < m->n_cols; i++)
+            if (min > * Matrix_at(m, i, j))
+                min = * Matrix_at(m, i, j);
+
+    return min;
+}
+
+float Matrix_max(Matrix * m)
+{
+    float max = * Matrix_at(m, 0,0);
+
+    for (unsigned short j = 0; j < m->n_rows; j++)
+        for (unsigned short i = 0; i < m->n_cols; i++)
+            if (max < * Matrix_at(m, i, j))
+                max = * Matrix_at(m, i, j);
+
+    return max;
 }

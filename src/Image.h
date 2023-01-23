@@ -76,3 +76,17 @@ void Image_applyTreshold(Image * img, Vec3 * v);
 /// @return pointer to resulting image
 Image * Image_medianFilter(Image * img, unsigned short s);
 
+Image * Image_histoBMP(Image * img, unsigned short w, unsigned short h);
+
+Image * Image_histoCumulatifBMP(Image * img, unsigned short w, unsigned short h);
+
+unsigned int ** Image_histo(Image * img);
+
+unsigned int ** Image_histoCumulatif(Image * img);
+
+Image * Image_extend(Image * img);
+
+Image ** Image_applyFFT(Image * img);
+
+Image * Image_applyIFFT(Image ** frq);
+

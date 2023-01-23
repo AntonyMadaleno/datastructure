@@ -12,26 +12,29 @@
 #include "fft.h"
 
 void main()
-{
-
+{   
     //load image
     Image * i0 = Image_import("img/earth.bmp");
+    Image * h0 = Image_histoBMP(i0, 1280, 900);
+    Image_export(h0, "output_img/histo.bmp");
+    Image_free(h0);
+    Image * h1 = Image_histoCumulatifBMP(i0, 1280, 900);
+    Image_export(h1, "output_img/histoCumulatif.bmp");
+    Image_free(h1);
 
-    //do treatment on it and save some results
-    Matrix ** fR = Matrix_fft(i0->R);
-    Matrix ** fG = Matrix_fft(i0->G);
-    Matrix ** fB = Matrix_fft(i0->B);
-
-    Matrix * xR = Matrix_ifft(fR);
-    Matrix * xG = Matrix_ifft(fG);
-    Matrix * xB = Matrix_ifft(fB);
-
-    i0->R = xR;
-    i0->G = xG;
-    i0->B = xB;
-
-    Image_export(i0, "output_img/testifft.bmp");
-
-    //free memory
+    Image ** F = Image_applyFFT(i0);
     Image_free(i0);
+
+    Image * i1 = Image_applyIFFT(F);
+    Image_export(i1, "output_img/ifftout.bmp");
+    Image_free(i1);
+
+    Image * i2 = Image_extend(F[0]);
+    Image * i3 = Image_extend(F[1]);
+
+    Image_export(i2, "output_img/fftreal.bmp");
+    Image_export(i3, "output_img/fftimag.bmp");
+
+    Image_free(i2);
+    Image_free(i3);
 }

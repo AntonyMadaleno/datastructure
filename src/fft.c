@@ -35,7 +35,7 @@ float complex * fft(float complex * data, unsigned int n)
 
     for (int k = 0; k < m; k++)
     {
-        float complex w = cexpf(-I*2*M_PI*k/n) * FO[k];
+        double complex w = ( cosf(-2*M_PI*k/n) + I * sinf(-2*M_PI*k/n) ) * FO[k];
 
         F[k] = FE[k] + w;
         F[k+m] = FE[k] - w;

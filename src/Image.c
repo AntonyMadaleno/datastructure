@@ -386,3 +386,237 @@ Image * Image_medianFilter(Image * img, unsigned short s)
     return out;
 
 }
+
+Image * Image_histoCumulatifBMP(Image * img, unsigned short w, unsigned short h)
+{
+    unsigned int * buf_R = (unsigned int *) calloc( 256, sizeof(unsigned int) );
+    unsigned int * buf_G = (unsigned int *) calloc( 256, sizeof(unsigned int) );
+    unsigned int * buf_B = (unsigned int *) calloc( 256, sizeof(unsigned int) );
+
+    w = w - w%256;
+    unsigned char step = w / 256;
+
+    Image * histo = Image_set(h,w);
+
+    for (unsigned short i = 0; i < img->width; i++)
+        for (unsigned short j = 0; j < img->height; j++)
+        {
+            buf_R[ (unsigned char) ( 255*(* Matrix_at(img->R, i ,j)) ) ]++;
+            buf_G[ (unsigned char) ( 255*(* Matrix_at(img->G, i ,j)) ) ]++;
+            buf_B[ (unsigned char) ( 255*(* Matrix_at(img->B, i ,j)) ) ]++;
+        }
+
+    for (unsigned short i = 1; i < 255; i++)
+    {
+        buf_R[i] += buf_R[i-1];
+        buf_G[i] += buf_G[i-1];
+        buf_B[i] += buf_B[i-1];
+    }
+        
+
+    unsigned int max = 0; 
+    for ( unsigned char i = 0; i < 255; i++ )
+    {
+        if (max < buf_R[i])
+            max = buf_R[i];
+        if (max < buf_G[i])
+            max = buf_G[i];
+        if (max < buf_B[i])
+            max = buf_B[i];
+    }
+
+    for ( unsigned char i = 0; i < 255; i++ )
+        for (unsigned char x = 0; x < step; x++)
+        {
+            for (unsigned short r = 0; r < (h-1)*buf_R[i]/max; r++)
+                Matrix_setAt(histo->R, i * step + x, r, 1.0);
+            for (unsigned short g = 0; g < (h-1)*buf_G[i]/max; g++)
+                Matrix_setAt(histo->G, i * step + x, g, 1.0);
+            for (unsigned short b = 0; b < (h-1)*buf_B[i]/max; b++)
+                Matrix_setAt(histo->B, i * step + x, b, 1.0);
+        }
+
+    free(buf_R);
+    free(buf_G);
+    free(buf_B);
+
+    return histo;
+}
+
+Image * Image_histoBMP(Image * img, unsigned short w, unsigned short h)
+{
+    unsigned int * buf_R = (unsigned int *) calloc( 256, sizeof(unsigned int) );
+    unsigned int * buf_G = (unsigned int *) calloc( 256, sizeof(unsigned int) );
+    unsigned int * buf_B = (unsigned int *) calloc( 256, sizeof(unsigned int) );
+
+    w = w - w%256;
+    unsigned char step = w / 256;
+
+    Image * histo = Image_set(h,w);
+
+    for (unsigned short i = 0; i < img->width; i++)
+        for (unsigned short j = 0; j < img->height; j++)
+        {
+            buf_R[ (unsigned char) ( 255*(* Matrix_at(img->R, i ,j)) ) ]++;
+            buf_G[ (unsigned char) ( 255*(* Matrix_at(img->G, i ,j)) ) ]++;
+            buf_B[ (unsigned char) ( 255*(* Matrix_at(img->B, i ,j)) ) ]++;
+        }
+
+    unsigned int max = 0; 
+    for ( unsigned char i = 0; i < 255; i++ )
+    {
+        if (max < buf_R[i])
+            max = buf_R[i];
+        if (max < buf_G[i])
+            max = buf_G[i];
+        if (max < buf_B[i])
+            max = buf_B[i];
+    }
+
+    for ( unsigned char i = 0; i < 255; i++ )
+        for (unsigned char x = 0; x < step; x++)
+        {
+            for (unsigned short r = 0; r < (h-1)*buf_R[i]/max; r++)
+                Matrix_setAt(histo->R, i * step + x, r, 1.0);
+            for (unsigned short g = 0; g < (h-1)*buf_G[i]/max; g++)
+                Matrix_setAt(histo->G, i * step + x, g, 1.0);
+            for (unsigned short b = 0; b < (h-1)*buf_B[i]/max; b++)
+                Matrix_setAt(histo->B, i * step + x, b, 1.0);
+        }
+
+    free(buf_R);
+    free(buf_G);
+    free(buf_B);
+
+    return histo;
+}
+
+unsigned int ** Image_histo(Image * img)
+{
+    unsigned int * buf_R = (unsigned int *) calloc( 256, sizeof(unsigned int) );
+    unsigned int * buf_G = (unsigned int *) calloc( 256, sizeof(unsigned int) );
+    unsigned int * buf_B = (unsigned int *) calloc( 256, sizeof(unsigned int) );
+
+    for (unsigned short i = 0; i < img->width; i++)
+        for (unsigned short j = 0; j < img->height; j++)
+        {
+            buf_R[ (unsigned char) ( 255*(* Matrix_at(img->R, i ,j)) ) ]++;
+            buf_G[ (unsigned char) ( 255*(* Matrix_at(img->G, i ,j)) ) ]++;
+            buf_B[ (unsigned char) ( 255*(* Matrix_at(img->B, i ,j)) ) ]++;
+        }
+
+    unsigned int ** values = (unsigned int **) calloc(3, sizeof(unsigned int) );
+    values[0] = buf_R;
+    values[1] = buf_G;
+    values[2] = buf_B;
+
+    return values;
+}
+
+unsigned int ** Image_histoCumulatif(Image * img)
+{
+    unsigned int * buf_R = (unsigned int *) calloc( 256, sizeof(unsigned int) );
+    unsigned int * buf_G = (unsigned int *) calloc( 256, sizeof(unsigned int) );
+    unsigned int * buf_B = (unsigned int *) calloc( 256, sizeof(unsigned int) );
+
+    for (unsigned short i = 0; i < img->width; i++)
+        for (unsigned short j = 0; j < img->height; j++)
+        {
+            buf_R[ (unsigned char) ( 255*(* Matrix_at(img->R, i ,j)) ) ]++;
+            buf_G[ (unsigned char) ( 255*(* Matrix_at(img->G, i ,j)) ) ]++;
+            buf_B[ (unsigned char) ( 255*(* Matrix_at(img->B, i ,j)) ) ]++;
+        }
+
+    for (unsigned short i = 1; i < 255; i++)
+    {
+        buf_R[i] += buf_R[i-1];
+        buf_G[i] += buf_G[i-1];
+        buf_B[i] += buf_B[i-1];
+    }
+        
+
+    unsigned int max = 0; 
+    for ( unsigned char i = 0; i < 255; i++ )
+    {
+        if (max < buf_R[i])
+            max = buf_R[i];
+        if (max < buf_G[i])
+            max = buf_G[i];
+        if (max < buf_B[i])
+            max = buf_B[i];
+    }
+
+    unsigned int ** values = (unsigned int **) calloc(3, sizeof(unsigned int) );
+    values[0] = buf_R;
+    values[1] = buf_G;
+    values[2] = buf_B;
+
+    return values;
+}
+
+Image * Image_extend(Image * img)
+{
+    Image * ex = Image_set(img->height, img->width);
+    float max = fmax(fmax( Matrix_max(img->R) , Matrix_max(img->G) ), Matrix_max(img->B) );
+    float min = fmin(fmin( Matrix_min(img->R) , Matrix_min(img->G) ), Matrix_min(img->B) );
+
+    for (unsigned short x = 0; x < img->width; x++)
+        for (unsigned short y = 0; y < img->height; y++)
+        {
+            Matrix_setAt(ex->R, x, y, ( (* Matrix_at(img->R, x, y)) - min ) * 1 / max );
+            Matrix_setAt(ex->G, x, y, ( (* Matrix_at(img->G, x, y)) - min ) * 1 / max );
+            Matrix_setAt(ex->B, x, y, ( (* Matrix_at(img->B, x, y)) - min ) * 1 / max );
+        }
+
+    return ex;
+}
+
+Image ** Image_applyFFT(Image * img)
+{
+    
+    Image ** frq = (Image **) calloc( 2, sizeof(Image *) );
+
+    Matrix ** FR = Matrix_fft(img->R);
+    Matrix ** FG = Matrix_fft(img->G);
+    Matrix ** FB = Matrix_fft(img->B);
+
+    for (unsigned char t = 0; t < 2; t++)
+    {
+        frq[t] = (Image *) calloc( 1, sizeof(Image) );
+        frq[t]->height = img->height;
+        frq[t]->width = img->width;
+        frq[t]->R = FR[t];
+        frq[t]->G = FG[t];
+        frq[t]->B = FB[t];
+    }
+
+    return frq;
+}
+
+Image * Image_applyIFFT(Image ** frq)
+{
+    Image * img = Image_set(frq[0]->height, frq[0]->width);
+
+    Matrix ** FR = (Matrix **) calloc( 2, sizeof(Matrix *) );
+    Matrix ** FG = (Matrix **) calloc( 2, sizeof(Matrix *) );
+    Matrix ** FB = (Matrix **) calloc( 2, sizeof(Matrix *) );
+
+    FR[0] = frq[0]->R;
+    FR[1] = frq[1]->R;
+
+    FG[0] = frq[0]->G;
+    FG[1] = frq[1]->G;
+
+    FB[0] = frq[0]->B;
+    FB[1] = frq[1]->B;
+
+    Matrix_free(img->R);
+    Matrix_free(img->G);
+    Matrix_free(img->B);
+
+    img->R = Matrix_ifft(FR);
+    img->G = Matrix_ifft(FG);
+    img->B = Matrix_ifft(FB);
+
+    return img;
+}

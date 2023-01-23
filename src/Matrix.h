@@ -126,3 +126,13 @@ Matrix ** Matrix_fft(Matrix * m);
 /// @return 
 Matrix * Matrix_ifft(Matrix ** F);
 
+/// @brief 
+/// @param m 
+/// @return minimum value in matrix
+float Matrix_min(Matrix * m);
+
+/// @brief 
+/// @param m 
+/// @return maximum value in matrix
+float Matrix_max(Matrix * m);
+
