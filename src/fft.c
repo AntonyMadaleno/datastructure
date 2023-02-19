@@ -1,3 +1,13 @@
+/**
+ * @file fft.c
+ * @brief fft implementation (Cooley-Tuckey)
+ * @author Antony Madaleno
+ * @version 1.0
+ * @date 20-01-2023
+ *
+ *
+ */
+
 #include "fft.h"
 
 unsigned int reverseBit(unsigned int n, unsigned char bitsize)

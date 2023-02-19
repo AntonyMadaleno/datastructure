@@ -1,3 +1,14 @@
+/**
+ * @file fft.h
+ * @brief fft header (Cooley-Tuckey)
+ * @author Antony Madaleno
+ * @version 1.0
+ * @date 12-01-2023
+ *
+ *
+ */
+
+
 #pragma once
 
 #include <stdio.h>

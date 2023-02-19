@@ -3,7 +3,7 @@
  * @brief Header for struct Image
  * @author Antony Madaleno
  * @version 1.0
- * @date 12-01-2023
+ * @date 24-01-2023
  *
  * Header pour les struct de Image, semblable à des matrices
  *
@@ -76,17 +76,68 @@ void Image_applyTreshold(Image * img, Vec3 * v);
 /// @return pointer to resulting image
 Image * Image_medianFilter(Image * img, unsigned short s);
 
+/// @brief 
+/// @param img 
+/// @param w 
+/// @param h 
+/// @return 
 Image * Image_histoBMP(Image * img, unsigned short w, unsigned short h);
 
+/// @brief 
+/// @param img 
+/// @param w 
+/// @param h 
+/// @return 
 Image * Image_histoCumulatifBMP(Image * img, unsigned short w, unsigned short h);
 
+/// @brief 
+/// @param img 
+/// @return 
 unsigned int ** Image_histo(Image * img);
 
+/// @brief 
+/// @param img 
+/// @return 
 unsigned int ** Image_histoCumulatif(Image * img);
 
+/// @brief 
+/// @param img 
+/// @return 
 Image * Image_extend(Image * img);
 
+/// @brief 
+/// @param img 
+/// @return 
 Image ** Image_applyFFT(Image * img);
 
+/// @brief 
+/// @param frq 
+/// @return 
 Image * Image_applyIFFT(Image ** frq);
+
+/// @brief 
+/// @param img 
+/// @return 
+Image * Image_equalize(Image * img);
+
+/// @brief 
+/// @param img 
+/// @param spec_R 
+/// @param spec_G 
+/// @param spec_B 
+/// @return 
+Image * Image_specHisto(Image * img, unsigned int * spec_R, unsigned int * spec_G, unsigned int * spec_B);
+
+/// @brief 
+/// @param img 
+/// @param lut_R 
+/// @param lut_G 
+/// @param lut_B 
+/// @return 
+Image * Image_applyLUTS(Image * img, float * lut_R, float * lut_G, float * lut_B);
+
+/// @brief 
+/// @param img 
+/// @return 
+Image * Image_toGray(Image * img);
 

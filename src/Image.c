@@ -1,3 +1,14 @@
+/**
+ * @file Image.c
+ * @brief Image treatment function implementation
+ * @author Antony Madaleno
+ * @version 1.0
+ * @date 25-01-2023
+ *
+ *
+ */
+
+
 #include "Image.h"
 #include "stdio.h"
 #include "stdlib.h"
@@ -522,12 +533,12 @@ unsigned int ** Image_histoCumulatif(Image * img)
     for (unsigned short i = 0; i < img->width; i++)
         for (unsigned short j = 0; j < img->height; j++)
         {
-            buf_R[ (unsigned char) ( 255*(* Matrix_at(img->R, i ,j)) ) ]++;
-            buf_G[ (unsigned char) ( 255*(* Matrix_at(img->G, i ,j)) ) ]++;
-            buf_B[ (unsigned char) ( 255*(* Matrix_at(img->B, i ,j)) ) ]++;
+            buf_R[ (unsigned char) floorf( 256*(* Matrix_at(img->R, i ,j)) ) ]++;
+            buf_G[ (unsigned char) floorf( 256*(* Matrix_at(img->G, i ,j)) ) ]++;
+            buf_B[ (unsigned char) floorf( 256*(* Matrix_at(img->B, i ,j)) ) ]++;
         }
 
-    for (unsigned short i = 1; i < 255; i++)
+    for (unsigned short i = 1; i < 256; i++)
     {
         buf_R[i] += buf_R[i-1];
         buf_G[i] += buf_G[i-1];
@@ -536,7 +547,7 @@ unsigned int ** Image_histoCumulatif(Image * img)
         
 
     unsigned int max = 0; 
-    for ( unsigned char i = 0; i < 255; i++ )
+    for ( unsigned short i = 0; i < 256; i++ )
     {
         if (max < buf_R[i])
             max = buf_R[i];
@@ -563,9 +574,9 @@ Image * Image_extend(Image * img)
     for (unsigned short x = 0; x < img->width; x++)
         for (unsigned short y = 0; y < img->height; y++)
         {
-            Matrix_setAt(ex->R, x, y, ( (* Matrix_at(img->R, x, y)) - min ) * 1 / max );
-            Matrix_setAt(ex->G, x, y, ( (* Matrix_at(img->G, x, y)) - min ) * 1 / max );
-            Matrix_setAt(ex->B, x, y, ( (* Matrix_at(img->B, x, y)) - min ) * 1 / max );
+            Matrix_setAt(ex->R, x, y, ( (* Matrix_at(img->R, x, y)) - min ) * 1.0 / (max - min) );
+            Matrix_setAt(ex->G, x, y, ( (* Matrix_at(img->G, x, y)) - min ) * 1.0 / (max - min) );
+            Matrix_setAt(ex->B, x, y, ( (* Matrix_at(img->B, x, y)) - min ) * 1.0 / (max - min) );
         }
 
     return ex;
@@ -619,4 +630,113 @@ Image * Image_applyIFFT(Image ** frq)
     img->B = Matrix_ifft(FB);
 
     return img;
+}
+
+Image * Image_applyLUTS(Image * img, float * lut_R, float * lut_G, float * lut_B)
+{
+
+    Image * res = Image_set(img->height, img->width);
+
+    for (unsigned short i = 0; i < img->width; i++)
+        for (unsigned short j = 0; j < img->height; j++)
+        {
+            Matrix_setAt( res->R, i, j, lut_R[ (unsigned char) (255 * ( * Matrix_at(img->R, i, j) ) )] );
+            Matrix_setAt( res->G, i, j, lut_G[ (unsigned char) (255 * ( * Matrix_at(img->G, i, j) ) )] );
+            Matrix_setAt( res->B, i, j, lut_B[ (unsigned char) (255 * ( * Matrix_at(img->B, i, j) ) )] );
+        }
+
+    return res;
+}
+
+Image * Image_equalize(Image * img)
+{
+    Image * res = Image_set(img->height, img->width);
+
+    unsigned int ** H = Image_histoCumulatif(img);
+    unsigned int * buffer = (unsigned int *) calloc( 256, sizeof(unsigned int) );
+
+    for (unsigned char i = 0; i < 255; i++)
+        buffer[i] = H[0][i] + H[1][i] + H[2][i];
+
+    free(H[0]);
+    free(H[1]);
+    free(H[2]);
+    free(H);
+
+    unsigned int pixCount = img->height * img->width * 3;
+
+    for (unsigned short i = 0; i < img->width; i++)
+    {
+        for (unsigned short j = 0; j < img->height; j++)
+        {
+            Matrix_setAt( res->R, i, j, (float) buffer[ (unsigned char) (255 * ( * Matrix_at(img->R, i, j) ) )] / pixCount  );
+            Matrix_setAt( res->G, i, j, (float) buffer[ (unsigned char) (255 * ( * Matrix_at(img->G, i, j) ) )] / pixCount  );
+            Matrix_setAt( res->B, i, j, (float) buffer[ (unsigned char) (255 * ( * Matrix_at(img->B, i, j) ) )] / pixCount  );
+        }  
+    }
+
+    return res;
+}
+
+Image * Image_specHisto(Image * img, unsigned int * spec_R, unsigned int * spec_G, unsigned int * spec_B)
+{
+    
+    unsigned int ** X = Image_histoCumulatif(img);
+    unsigned int ** S = (unsigned int **) calloc( 3, sizeof(unsigned int *) );
+    unsigned int ** H = (unsigned int **) calloc( 3, sizeof(unsigned int *) );
+
+    S[0] = spec_R;
+    S[1] = spec_G;
+    S[2] = spec_B;
+
+    H[0] = (unsigned int *) calloc( 256, sizeof(unsigned int) );
+    H[1] = (unsigned int *) calloc( 256, sizeof(unsigned int) );;
+    H[2] = (unsigned int *) calloc( 256, sizeof(unsigned int) );;
+
+    float ** luts = (float **) calloc( 3, sizeof(float *) );
+
+    for (unsigned char c = 0; c < 3; c++)
+        for (unsigned short i = 0; i < 256; i++)
+        {
+            H[c][255-i] = (unsigned int) 255 - floorf( (float) 255.0 * X[c][i] / X[c][255] );
+            S[c][i] = (unsigned int) floorf( (float) 255.0 * S[c][i] / S[c][255] );
+        }
+
+    for (unsigned char c = 0; c < 3; c++)
+    {
+        luts[c] = (float *) calloc( 256, sizeof(float) );
+        for (unsigned short i = 0; i < 256; i++)
+            luts[c][i] = H[c][ S[c][i] ] / 255.0;
+    }
+
+    Image * res = Image_applyLUTS(img, luts[0], luts[1], luts[2]);
+    
+    return res;
+}
+
+Image * Image_toGray(Image * img)
+{
+    Image * res = Image_set(img->height, img->width);
+    Matrix_free(res->G);
+    Matrix_free(res->B);
+
+    res->G = res->R;
+    res->B = res->R;
+
+    for (unsigned short y = 0; y < img->height; y++)
+        for (unsigned short x = 0; x < img->width; x++)
+        {
+            float v =   0.299 * ( * Matrix_at(img->R, x, y) );
+            v +=        0.587 * ( * Matrix_at(img->G, x, y) );
+            v +=        0.114 * ( * Matrix_at(img->B, x, y) );
+            
+            if (v <= 0.0031308)
+                v *= 5;
+            else
+                v = 1.015 * powf(v, 0.75) - 0.015;
+            
+            Matrix_setAt( res->R, x, y, v );
+        }
+
+    return res;
 }
